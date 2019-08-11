@@ -1,0 +1,66 @@
+apply plugin: "java"
+apply plugin: "maven-publish"
+
+group = project.groupId
+version = project.versionName
+
+java {
+    withSourcesJar()
+    withJavadocJar()
+}
+
+javadoc {
+    if (JavaVersion.current().isJava9Compatible()) {
+        options.addBooleanOption("html5", true)
+    }
+}
+
+publishing {
+    publications {
+        bintray(MavenPublication) {
+            from components.java
+            groupId project.groupId
+            artifactId moduleArtifactId
+            version = project.versionName
+        }
+    }
+}
+
+apply plugin: "com.jfrog.bintray"
+
+Properties properties = new Properties()
+def propertiesFile = project.rootProject.file("${System.properties['user.home']}/.gradle/gradle.properties")
+if (propertiesFile.exists()) {
+    properties.load(propertiesFile.newDataInputStream())
+}
+def bintrayUser = properties.getProperty("bintrayUser") ?: System.getenv("BINTRAY_USER")
+def bintrayApiKey = properties.getProperty("bintrayApiKey") ?: System.getenv("BINTRAY_API_KEY")
+
+bintray {
+    user = bintrayUser
+    key = bintrayApiKey
+    configurations = ["archives"]
+    publications = ["bintray"]
+    override = true
+    publish = false
+    dryRun = false
+
+    pkg {
+        repo = project.packageRepository
+        name = project.packageName
+        desc = project.packageDescription
+        websiteUrl = project.packageWebsiteUrl
+        issueTrackerUrl = project.packageIssueTrackingUrl
+        vcsUrl = project.packageVcsUrl
+        licenses = project.packageLicenses
+        labels = project.packageLabels
+        publicDownloadNumbers = true
+
+        version {
+            name = project.versionName
+            desc = project.versionDescription
+            released = new Date()
+            vcsTag = project.versionVcsTag
+        }
+    }
+}

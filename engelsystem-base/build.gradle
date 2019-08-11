@@ -1,0 +1,45 @@
+import info.metadude.kotlin.library.engelsystem.Libs
+import org.gradle.api.tasks.testing.logging.TestExceptionFormat
+import org.gradle.api.tasks.testing.logging.TestLogEvent
+
+apply plugin: "java-library"
+apply plugin: "kotlin"
+apply plugin: "kotlin-kapt"
+
+compileJava {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+dependencies {
+    implementation Libs.kotlinStdlib
+    implementation Libs.moshi
+    kapt Libs.moshiKotlinCodegen
+    implementation Libs.okhttp
+    implementation Libs.okhttpLoggingInterceptor
+    implementation Libs.retrofit
+    implementation Libs.retrofitMoshi
+    api Libs.threetenbp
+
+    testImplementation Libs.truth
+    testImplementation Libs.junitJupiterApi
+    testRuntime Libs.junitJupiterEngine
+    testImplementation Libs.kotlinCoroutinesRetrofit
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events TestLogEvent.FAILED,
+                TestLogEvent.PASSED,
+                TestLogEvent.SKIPPED,
+                TestLogEvent.STANDARD_ERROR,
+                TestLogEvent.STANDARD_OUT
+        exceptionFormat TestExceptionFormat.FULL
+        showCauses true
+        showExceptions true
+        showStackTraces true
+    }
+}
+
+apply from: rootProject.file("gradle/deploy.gradle")

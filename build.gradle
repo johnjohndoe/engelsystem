@@ -1,0 +1,23 @@
+import info.metadude.kotlin.library.engelsystem.GradlePlugins
+
+apply from: "gradle/gradle-versions.gradle"
+
+buildscript {
+
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath GradlePlugins.bintray
+        classpath GradlePlugins.kotlin
+        classpath GradlePlugins.versions
+    }
+}
+
+allprojects {
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+}
