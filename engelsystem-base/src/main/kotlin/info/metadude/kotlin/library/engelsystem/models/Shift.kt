@@ -3,6 +3,7 @@ package info.metadude.kotlin.library.engelsystem.models
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import org.threeten.bp.Instant
 import org.threeten.bp.ZoneOffset
 import org.threeten.bp.ZonedDateTime
 
@@ -22,7 +23,7 @@ data class Shift(
      * Unix timestamp of when the shift ends.
      */
     @Json(name = "end")
-    val endsAt: ZonedDateTime = DEFAULT_DATE_TIME,
+    internal val endsAtInstant: Instant = DEFAULT_INSTANT,
 
     /**
      * Description of the shift location.
@@ -58,7 +59,7 @@ data class Shift(
      * Unix timestamp of when the shift starts.
      */
     @Json(name = "start")
-    val startsAt: ZonedDateTime = DEFAULT_DATE_TIME,
+    internal val startsAtInstant: Instant = DEFAULT_INSTANT,
 
     /**
      * Title of the associated talk in case the shift happens at a talk.
@@ -73,6 +74,12 @@ data class Shift(
     internal val talkUrlString: String? = "",
 
     /**
+     * Time zone offset associated with the time stamps in this class. Example: "+01:00"
+     */
+    @Json(name = "timezone")
+    val timeZoneOffset: ZoneOffset = DEFAULT_ZONE_OFFSET,
+
+    /**
      * Shift types ids are not fixed. They can be assigned whenever an instance of the Engelsystem is launched.
      */
     @Json(name = "shifttype_id")
@@ -81,8 +88,16 @@ data class Shift(
 ) {
 
     companion object {
-        internal val DEFAULT_DATE_TIME = ZonedDateTime.of(1970, 1, 1, 0, 0, 0, 0, ZoneOffset.UTC)
+        internal val DEFAULT_ZONE_OFFSET = ZoneOffset.UTC
+        internal val DEFAULT_INSTANT = Instant.EPOCH
     }
+
+
+    /**
+     * Date and time with time zone offset of when the shift ends.
+     */
+    val endsAt: ZonedDateTime
+        get() = ZonedDateTime.ofInstant(endsAtInstant, timeZoneOffset)
 
     /**
      * Description of the shift location.
@@ -95,6 +110,12 @@ data class Shift(
      */
     val locationUrl: String
         get() = locationUrlString ?: ""
+
+    /**
+     * Date and time with time zone offset of when the shift starts.
+     */
+    val startsAt: ZonedDateTime
+        get() = ZonedDateTime.ofInstant(startsAtInstant, timeZoneOffset)
 
     /**
      * Link of the associated talk in case the shift happens at a talk.
