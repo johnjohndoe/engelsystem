@@ -8,6 +8,7 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.junit.Assert.fail
 import org.junit.jupiter.api.Test
+import org.threeten.bp.ZonedDateTime
 import retrofit2.awaitResponse
 
 class ProductionApiTest {
@@ -17,6 +18,7 @@ class ProductionApiTest {
         const val URL_PART_PATH = "test/shifts-json-export"
         const val VALID_API_KEY = "5dfc078751a0e382d0b96af0ae0fb3bb"
         const val INVALID_API_KEY = "invalid"
+        val DEFAULT_DATE_TIME = ZonedDateTime.of(1970, 1, 1, 0, 0, 0, 0, Shift.DEFAULT_ZONE_OFFSET)
     }
 
     @Test
@@ -46,8 +48,11 @@ class ProductionApiTest {
         assertThat(shift.talkTitle).isNotNull()
         assertThat(shift.talkUrl).isNotNull()
         assertThat(shift.userComment).isNotNull()
-        assertThat(shift.startsAt).isNotEqualTo(Shift.DEFAULT_DATE_TIME)
-        assertThat(shift.endsAt).isNotEqualTo(Shift.DEFAULT_DATE_TIME)
+        assertThat(shift.startsAtInstant).isNotEqualTo(Shift.DEFAULT_INSTANT)
+        assertThat(shift.endsAtInstant).isNotEqualTo(Shift.DEFAULT_INSTANT)
+        assertThat(shift.startsAt).isNotEqualTo(DEFAULT_DATE_TIME)
+        assertThat(shift.endsAt).isNotEqualTo(DEFAULT_DATE_TIME)
+        assertThat(shift.timeZoneOffset).isNotNull()
     }
 
     @Test

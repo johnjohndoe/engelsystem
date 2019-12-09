@@ -12,16 +12,15 @@ A Kotlin library containing a parser and models for the Engelsystem:
 ## Usage
 
 ```kotlin
-ApiModule.provideEngelsystemService(BASE_URL, okHttpClient, timeZoneOffset)
+ApiModule.provideEngelsystemService(BASE_URL, okHttpClient)
          .getShifts(URL_PART_PATH, API_KEY)
 ```
 
 
-### Time zone offset
+### Time stamps
 
-Currently, the time stamps in the API response do not contain information about the time zone.
-Therefore, the time zone offset has to be passed to `ApiModule#provideEngelsystemService`. 
-See [Engelsystem issue #689][engelsystem-issue-689].
+The API response contains time stamps and a corresponding time zone offset.
+When the properties of the `Shift` model are read then these two information are joined.
 
 
 ## Gradle build
@@ -86,6 +85,5 @@ $ ./gradlew clean test
     limitations under the License.
 
 
-[engelsystem-issue-689]: https://github.com/engelsystem/engelsystem/issues/689
 [jitpack-engelsystem]: https://jitpack.io/#johnjohndoe/engelsystem
 [tobias-preuss]: https://github.com/johnjohndoe
