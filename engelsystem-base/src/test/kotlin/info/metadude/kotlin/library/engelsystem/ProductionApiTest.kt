@@ -44,9 +44,7 @@ class ProductionApiTest {
         assertThat(shift.locationDescription).isNotNull()
         assertThat(shift.locationUrl).isNotNull()
         assertThat(shift.talkTitle).isNotNull()
-        shift.talkUrl?.let {
-            assertThat(it).isNotEmpty()
-        }
+        assertThat(shift.talkUrl).isNotNull()
         assertThat(shift.userComment).isNotNull()
         assertThat(shift.startsAt).isNotEqualTo(Shift.DEFAULT_DATE_TIME)
         assertThat(shift.endsAt).isNotEqualTo(Shift.DEFAULT_DATE_TIME)

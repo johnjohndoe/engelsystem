@@ -28,7 +28,7 @@ data class Shift(
      * Description of the shift location.
      */
     @Json(name = "description")
-    val locationDescription: String = "",
+    internal val locationDescriptionString: String? = "",
 
     /**
      * Name of the location where the shift takes place.
@@ -40,7 +40,7 @@ data class Shift(
      * Link to the location of the shift.
      */
     @Json(name = "map_url")
-    val locationUrl: String = "",
+    internal val locationUrlString: String? = "",
 
     /**
      * Name of the shift.
@@ -70,7 +70,7 @@ data class Shift(
      * Link of the associated talk in case the shift happens at a talk.
      */
     @Json(name = "URL")
-    val talkUrl: String? = "",
+    internal val talkUrlString: String? = "",
 
     /**
      * Shift types ids are not fixed. They can be assigned whenever an instance of the Engelsystem is launched.
@@ -83,5 +83,23 @@ data class Shift(
     companion object {
         internal val DEFAULT_DATE_TIME = ZonedDateTime.of(1970, 1, 1, 0, 0, 0, 0, ZoneOffset.UTC)
     }
+
+    /**
+     * Description of the shift location.
+     */
+    val locationDescription: String
+        get() = locationDescriptionString ?: ""
+
+    /**
+     * Link to the location of the shift.
+     */
+    val locationUrl: String
+        get() = locationUrlString ?: ""
+
+    /**
+     * Link of the associated talk in case the shift happens at a talk.
+     */
+    val talkUrl: String
+        get() = talkUrlString ?: ""
 
 }
