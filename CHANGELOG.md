@@ -1,8 +1,8 @@
 # Engelsystem changelog
 
-## NEXT
+## [v.2.0.0](https://github.com/johnjohndoe/engelsystem/releases/tag/v.2.0.0)
 
-* Published: yyyy-mm-dd
+* Published: 2019-12-09
 
 ### Changes
 
