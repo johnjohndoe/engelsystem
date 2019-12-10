@@ -1,5 +1,14 @@
 # Engelsystem changelog
 
+## NEXT
+
+* Published: yyyy-mm-dd
+
+### Changes
+
+* Allow creating custom shifts in tests.
+
+
 ## [v.2.0.0](https://github.com/johnjohndoe/engelsystem/releases/tag/v.2.0.0)
 
 * Published: 2019-12-09
