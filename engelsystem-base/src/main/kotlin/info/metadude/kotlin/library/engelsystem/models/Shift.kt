@@ -11,7 +11,7 @@ import org.threeten.bp.ZonedDateTime
  * Represents a work unit of an angel.
  */
 @JsonClass(generateAdapter = true)
-data class Shift(
+data class Shift internal constructor(
 
     /**
      * Private comment only visible to the associated user.
@@ -87,9 +87,38 @@ data class Shift(
 
 ) {
 
+    constructor(
+        userComment: String = "",
+        endsAt: ZonedDateTime = DEFAULT_ZONED_DATE_TIME,
+        locationDescription: String = "",
+        locationName: String = "",
+        locationUrl: String = "",
+        name: String = "",
+        sID: Int = 0,
+        startsAt: ZonedDateTime = DEFAULT_ZONED_DATE_TIME,
+        talkTitle: String = "",
+        talkUrl: String = "",
+        timeZoneOffset: ZoneOffset = DEFAULT_ZONE_OFFSET,
+        typeId: Int = 0
+    ) : this(
+        userComment = userComment,
+        endsAtInstant = endsAt.toInstant(),
+        locationDescriptionString = locationDescription,
+        locationName = locationName,
+        locationUrlString = locationUrl,
+        name = name,
+        sID = sID,
+        startsAtInstant = startsAt.toInstant(),
+        talkTitle = talkTitle,
+        talkUrlString = talkUrl,
+        timeZoneOffset = timeZoneOffset,
+        typeId = typeId
+    )
+
     companion object {
         internal val DEFAULT_ZONE_OFFSET = ZoneOffset.UTC
         internal val DEFAULT_INSTANT = Instant.EPOCH
+        internal val DEFAULT_ZONED_DATE_TIME = ZonedDateTime.ofInstant(DEFAULT_INSTANT, DEFAULT_ZONE_OFFSET)
     }
 
 
