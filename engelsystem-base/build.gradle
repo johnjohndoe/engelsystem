@@ -24,7 +24,7 @@ dependencies {
     testImplementation Libs.truth
     testImplementation Libs.junitJupiterApi
     testRuntime Libs.junitJupiterEngine
-    testImplementation Libs.kotlinCoroutinesRetrofit
+    testImplementation Libs.kotlinCoroutinesCore
 }
 
 test {

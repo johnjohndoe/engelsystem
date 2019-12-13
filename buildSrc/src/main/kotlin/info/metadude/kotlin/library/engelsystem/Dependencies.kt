@@ -18,7 +18,7 @@ object Libs {
 
     private object Versions {
         const val junitJupiter = "5.6.2"
-        const val kotlinCoroutinesRetrofit = "1.1.0"
+        const val kotlinCoroutines = "1.1.1"
         const val moshi = "1.9.3"
         const val okhttp = "3.12.12"
         const val retrofit = "2.6.4"
@@ -28,7 +28,7 @@ object Libs {
 
     const val junitJupiterApi = "org.junit.jupiter:junit-jupiter-api:${Versions.junitJupiter}"
     const val junitJupiterEngine = "org.junit.jupiter:junit-jupiter-engine:${Versions.junitJupiter}"
-    const val kotlinCoroutinesRetrofit = "ru.gildor.coroutines:kotlin-coroutines-retrofit:${Versions.kotlinCoroutinesRetrofit}"
+    const val kotlinCoroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.kotlinCoroutines}"
     const val kotlinStdlib = "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
     const val moshi = "com.squareup.moshi:moshi:${Versions.moshi}"
     const val moshiKotlinCodegen = "com.squareup.moshi:moshi-kotlin-codegen:${Versions.moshi}"

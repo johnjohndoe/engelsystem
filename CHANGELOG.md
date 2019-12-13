@@ -6,6 +6,7 @@
 
 ### Changes
 
+* Replace unneeded `kotlin-coroutines-retrofit` with `kotlinx-coroutines`.
 * Use moshi v.1.9.3.
 * Use kotlin v.1.3.72.
 * Use okhttp v.3.12.12.
@@ -20,7 +21,6 @@
 
 * Use okhttp v.3.12.7.
 * Use retrofit v.2.6.4.
-
 
 ## [v.3.0.0](https://github.com/johnjohndoe/engelsystem/releases/tag/v.3.0.0)
 
