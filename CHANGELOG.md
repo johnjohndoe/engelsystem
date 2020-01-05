@@ -1,8 +1,8 @@
 # Engelsystem changelog
 
-## NEXT
+## [v.3.1.0](https://github.com/johnjohndoe/engelsystem/releases/tag/v.3.1.0)
 
-* Not yet published
+* Published: 2020-01-05
 
 ### Changes
 
