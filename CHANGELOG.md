@@ -1,5 +1,14 @@
 # Engelsystem changelog
 
+## NEXT
+
+* Not yet published
+
+### Changes
+
+* Use retrofit v.2.6.4.
+
+
 ## [v.3.0.0](https://github.com/johnjohndoe/engelsystem/releases/tag/v.3.0.0)
 
 * Published: 2019-12-11
