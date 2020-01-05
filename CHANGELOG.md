@@ -6,6 +6,7 @@
 
 ### Changes
 
+* Use okhttp v.3.12.7.
 * Use retrofit v.2.6.4.
 
 
