@@ -1,5 +1,15 @@
 # Engelsystem changelog
 
+## NEXT
+
+* Not release yet.
+
+### Changes
+
+* Use okhttp v.3.12.8.
+* Use threetenbp v.1.4.1.
+
+
 ## [v.3.1.0](https://github.com/johnjohndoe/engelsystem/releases/tag/v.3.1.0)
 
 * Published: 2020-01-05
