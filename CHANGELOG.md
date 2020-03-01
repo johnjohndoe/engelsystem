@@ -2,7 +2,7 @@
 
 ## NEXT
 
-* Not release yet.
+* Not released yet.
 
 ### Changes
 
