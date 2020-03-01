@@ -6,7 +6,7 @@ object GradlePlugins {
 
     private object Versions {
         const val bintray = "1.8.4"
-        const val versions = "0.27.0"
+        const val versions = "0.28.0"
     }
 
     const val bintray = "com.jfrog.bintray.gradle:gradle-bintray-plugin:${Versions.bintray}"
