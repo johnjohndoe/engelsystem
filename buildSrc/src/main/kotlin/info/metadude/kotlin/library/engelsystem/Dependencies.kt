@@ -1,6 +1,6 @@
 package info.metadude.kotlin.library.engelsystem
 
-private const val kotlinVersion = "1.3.61"
+private const val kotlinVersion = "1.3.71"
 
 object GradlePlugins {
 
