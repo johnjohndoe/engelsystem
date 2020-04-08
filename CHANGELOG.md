@@ -6,7 +6,7 @@
 
 ### Changes
 
-* Use okhttp v.3.12.9.
+* Use okhttp v.3.12.10.
 * Use threetenbp v.1.4.3.
 
 
