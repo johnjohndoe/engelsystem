@@ -8,7 +8,7 @@
 
 * Use kotlin v.1.3.72.
 * Use okhttp v.3.12.11.
-* Use threetenbp v.1.4.3.
+* Use threetenbp v.1.4.4.
 
 
 ## [v.3.1.0](https://github.com/johnjohndoe/engelsystem/releases/tag/v.3.1.0)
