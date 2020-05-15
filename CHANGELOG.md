@@ -7,7 +7,7 @@
 ### Changes
 
 * Use kotlin v.1.3.72.
-* Use okhttp v.3.12.10.
+* Use okhttp v.3.12.11.
 * Use threetenbp v.1.4.3.
 
 
