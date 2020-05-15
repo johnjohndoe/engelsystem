@@ -17,7 +17,7 @@ object GradlePlugins {
 object Libs {
 
     private object Versions {
-        const val junitJupiter = "5.6.1"
+        const val junitJupiter = "5.6.2"
         const val kotlinCoroutinesRetrofit = "1.1.0"
         const val moshi = "1.9.2"
         const val okhttp = "3.12.11"
