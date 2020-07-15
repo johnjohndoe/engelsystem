@@ -6,6 +6,7 @@
 
 ### Changes
 
+* Use moshi v.1.9.3.
 * Use kotlin v.1.3.72.
 * Use okhttp v.3.12.12.
 * Use threetenbp v.1.4.4.
