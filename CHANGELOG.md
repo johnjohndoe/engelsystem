@@ -1,5 +1,14 @@
 # Engelsystem changelog
 
+## NEXT
+
+* Not released yet.
+
+### Changes
+
+* Use kotlinx-coroutines-core v.1.3.7 used in tests.
+
+
 ## [v.4.0.0](https://github.com/johnjohndoe/engelsystem/releases/tag/v.4.0.0)
 
 * Published: 2020-07-15
