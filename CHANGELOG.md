@@ -6,6 +6,7 @@
 
 ### Changes
 
+* Remove `UserAgentInterceptor` from public API.
 * Replace unneeded `kotlin-coroutines-retrofit` with `kotlinx-coroutines`.
 * Use moshi v.1.9.3.
 * Use kotlin v.1.3.72.
