@@ -1,3 +1,5 @@
+@file:Suppress("SpellCheckingInspection", "unused")
+
 package info.metadude.kotlin.library.engelsystem
 
 private const val kotlinVersion = "1.3.72"
