@@ -18,7 +18,7 @@ class ProductionApiTest {
         const val URL_PART_PATH = "test/shifts-json-export"
         const val VALID_API_KEY = "5dfc078751a0e382d0b96af0ae0fb3bb"
         const val INVALID_API_KEY = "invalid"
-        val DEFAULT_DATE_TIME = ZonedDateTime.of(1970, 1, 1, 0, 0, 0, 0, Shift.DEFAULT_ZONE_OFFSET)
+        val DEFAULT_DATE_TIME = ZonedDateTime.of(1970, 1, 1, 0, 0, 0, 0, Shift.DEFAULT_ZONE_OFFSET)!!
     }
 
     @Test
