@@ -12,7 +12,6 @@ compileJava {
 }
 
 dependencies {
-    implementation Libs.kotlinStdlib
     implementation Libs.moshi
     kapt Libs.moshiKotlinCodegen
     implementation Libs.okhttp

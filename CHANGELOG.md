@@ -1,5 +1,17 @@
 # Engelsystem changelog
 
+## NEXT
+
+* Not released yet.
+
+### Changes
+
+* Use threetenbp v.1.5.0.
+* Use moshi v.1.11.0. (ProGuard rules are being generated on the fly as of v.1.10.0!)
+* Use kotlinx-coroutines-core v.1.3.9 used in tests.
+* Use kotlin v.1.4.10.
+
+
 ## [v.4.0.1](https://github.com/johnjohndoe/engelsystem/releases/tag/v.4.0.1)
 
 * Published: 2020-07-15
