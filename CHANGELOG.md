@@ -6,6 +6,7 @@
 
 ### Changes
 
+* Use kotlinx-coroutines-core v.1.4.2 used in tests.
 * Use kotlin v.1.4.31.
 
 
