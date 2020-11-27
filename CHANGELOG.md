@@ -1,5 +1,14 @@
 # Engelsystem changelog
 
+## NEXT
+
+* Not released yet.
+
+### Changes
+
+* Use kotlin v.1.4.31.
+
+
 ## [v.5.0.0](https://github.com/johnjohndoe/engelsystem/releases/tag/v.5.0.0)
 
 * Published: 2020-11-04

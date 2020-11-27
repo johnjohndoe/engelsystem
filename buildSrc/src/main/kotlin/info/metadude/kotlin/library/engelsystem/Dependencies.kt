@@ -6,7 +6,7 @@ object GradlePlugins {
 
     private object Versions {
         const val bintray = "1.8.5"
-        const val kotlin = "1.4.10"
+        const val kotlin = "1.4.31"
         const val versions = "0.36.0"
     }
 
