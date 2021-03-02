@@ -6,6 +6,7 @@
 
 ### Changes
 
+* Use okhttp v.3.12.13.
 * Use kotlinx-coroutines-core v.1.4.2 used in tests.
 * Use kotlin v.1.4.31.
 
