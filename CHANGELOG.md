@@ -1,5 +1,16 @@
 # Engelsystem changelog
 
+## NEXT
+
+* Not released yet.
+
+### Changes
+
+* Use okhttp v.3.12.13.
+* Use kotlinx-coroutines-core v.1.4.2 used in tests.
+* Use kotlin v.1.4.31.
+
+
 ## [v.5.0.0](https://github.com/johnjohndoe/engelsystem/releases/tag/v.5.0.0)
 
 * Published: 2020-11-04

@@ -6,8 +6,8 @@ object GradlePlugins {
 
     private object Versions {
         const val bintray = "1.8.5"
-        const val kotlin = "1.4.10"
-        const val versions = "0.34.0"
+        const val kotlin = "1.4.31"
+        const val versions = "0.36.0"
     }
 
     const val bintray = "com.jfrog.bintray.gradle:gradle-bintray-plugin:${Versions.bintray}"
@@ -18,13 +18,13 @@ object GradlePlugins {
 object Libs {
 
     private object Versions {
-        const val junitJupiter = "5.7.0"
-        const val kotlinCoroutines = "1.4.0"
+        const val junitJupiter = "5.7.1"
+        const val kotlinCoroutines = "1.4.2"
         const val moshi = "1.11.0"
-        const val okhttp = "3.12.12"
+        const val okhttp = "3.12.13"
         const val retrofit = "2.6.4"
         const val threetenbp = "1.5.0"
-        const val truth = "1.1"
+        const val truth = "1.1.2"
     }
 
     const val junitJupiterApi = "org.junit.jupiter:junit-jupiter-api:${Versions.junitJupiter}"
