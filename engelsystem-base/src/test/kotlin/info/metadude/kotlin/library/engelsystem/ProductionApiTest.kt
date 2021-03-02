@@ -9,7 +9,6 @@ import okhttp3.logging.HttpLoggingInterceptor
 import org.junit.Assert.fail
 import org.junit.jupiter.api.Test
 import org.threeten.bp.ZonedDateTime
-import retrofit2.awaitResponse
 
 class ProductionApiTest {
 
@@ -24,7 +23,7 @@ class ProductionApiTest {
     @Test
     fun `Validates a successful shifts response`() = runBlocking {
         try {
-            val response = service.getShifts(URL_PART_PATH, VALID_API_KEY).awaitResponse()
+            val response = service.getShifts(URL_PART_PATH, VALID_API_KEY)
             if (response.isSuccessful) {
                 val shifts = response.body()
                 assertThat(shifts).isNotNull()
@@ -58,7 +57,7 @@ class ProductionApiTest {
     @Test
     fun `Validates a failure shifts response`() = runBlocking {
         try {
-            val response = service.getShifts(URL_PART_PATH, INVALID_API_KEY).awaitResponse()
+            val response = service.getShifts(URL_PART_PATH, INVALID_API_KEY)
             assertThat(response.isSuccessful).isFalse()
             assertThat(response.code()).isEqualTo(403)
             assertThat(response.body()).isNull()
