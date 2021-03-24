@@ -6,10 +6,12 @@ object GradlePlugins {
 
     private object Versions {
         const val bintray = "1.8.5"
+        const val dokka = "1.4.30"
         const val versions = "0.28.0"
     }
 
     const val bintray = "com.jfrog.bintray.gradle:gradle-bintray-plugin:${Versions.bintray}"
+    const val dokka = "org.jetbrains.dokka:dokka-gradle-plugin:${Versions.dokka}"
     const val kotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
     const val versions = "com.github.ben-manes:gradle-versions-plugin:${Versions.versions}"
 }
