@@ -1,19 +1,38 @@
 apply plugin: "java"
 apply plugin: "maven-publish"
+apply plugin: "org.jetbrains.dokka"
 
 group = project.groupId
 version = project.versionName
 
 java {
     withSourcesJar()
-    withJavadocJar()
 }
 
-javadoc {
-    if (JavaVersion.current().isJava9Compatible()) {
-        options.addBooleanOption("html5", true)
+task javadocJar(type: Jar, dependsOn: dokkaJavadoc) {
+    group "publishing"
+    description "Generates javadocJar based on Dokka"
+    archiveClassifier.set("javadoc")
+    from dokkaJavadoc.outputDirectory
+}
+
+dokkaJavadoc.configure {
+    moduleName.set("Engelsystem")
+    dokkaSourceSets {
+        named("main") {
+            sourceLink {
+                localDirectory.set(file("engelsystem-base/src/main/kotlin"))
+                remoteUrl.set(java.net.URL("https://github.com/johnjohndoe/engelsystem/blob/master/engelsystem-base/src/main/kotlin"))
+                remoteLineSuffix.set("#L")
+            }
+        }
     }
 }
+
+artifacts {
+    archives javadocJar
+}
+
 
 publishing {
     publications {
