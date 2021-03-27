@@ -1,4 +1,5 @@
-[![Build Status](https://travis-ci.org/johnjohndoe/engelsystem.svg?branch=master)](https://travis-ci.org/johnjohndoe/engelsystem) [![JCenter](https://api.bintray.com/packages/tbsprs/maven/engelsystem/images/download.svg)](https://bintray.com/tbsprs/maven/engelsystem/_latestVersion) [![Apache License](http://img.shields.io/badge/license-Apache%20License%202.0-lightgrey.svg)](http://choosealicense.com/licenses/apache-2.0/) [![JitPack](https://jitpack.io/v/johnjohndoe/engelsystem.svg)][jitpack-engelsystem]
+[![Build Status](https://travis-ci.org/johnjohndoe/engelsystem.svg?branch=master)](https://travis-ci.org/johnjohndoe/engelsystem) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/info.metadude.kotlin.library.engelsystem/engelsystem-base/badge.svg)](https://maven-badges.herokuapp.com/maven-central/info.metadude.kotlin.library.engelsystem/engelsystem-base) [![JCenter](https://api.bintray.com/packages/tbsprs/maven/engelsystem/images/download.svg)](https://bintray.com/tbsprs/maven/engelsystem/_latestVersion) [![JitPack](https://jitpack.io/v/johnjohndoe/engelsystem.svg)][jitpack-engelsystem] [![Apache License](http://img.shields.io/badge/license-Apache%20License%202.0-lightgrey.svg)](http://choosealicense.com/licenses/apache-2.0/)
+
 
 # Engelsystem library
 
