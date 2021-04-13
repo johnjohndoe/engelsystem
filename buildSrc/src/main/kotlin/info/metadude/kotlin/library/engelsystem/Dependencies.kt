@@ -21,7 +21,7 @@ object Libs {
 
     private object Versions {
         const val junitJupiter = "5.7.1"
-        const val kotlinCoroutines = "1.4.2"
+        const val kotlinCoroutines = "1.4.3"
         const val moshi = "1.11.0"
         const val okhttp = "3.12.13"
         const val retrofit = "2.6.4"
