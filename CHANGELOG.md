@@ -9,7 +9,7 @@
 * **Important:** Replace Bintray deployment with MavenCentral. New versions will not be available via Bintray/jCenter anymore.
 * Use okhttp v.3.12.13.
 * Use kotlinx-coroutines-core v.1.4.2 used in tests.
-* Use kotlin v.1.4.31.
+* Use kotlin v.1.4.32.
 
 
 ## [v.5.0.0](https://github.com/johnjohndoe/engelsystem/releases/tag/v.5.0.0)
