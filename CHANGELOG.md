@@ -7,6 +7,7 @@
 ### Changes
 
 * **Important:** Replace Bintray deployment with MavenCentral. New versions will not be available via Bintray/jCenter anymore.
+* Use moshi v.1.12.0.
 * Use okhttp v.3.12.13.
 * Use kotlinx-coroutines-core v.1.4.3 used in tests.
 * Use kotlin v.1.4.32.
