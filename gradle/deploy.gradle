@@ -1,12 +1,17 @@
 apply plugin: "java"
+apply plugin: "signing"
 apply plugin: "maven-publish"
 apply plugin: "org.jetbrains.dokka"
 
+// javadocJar and sourcesJar tasks pick up group and version
 group = project.groupId
 version = project.versionName
 
-java {
-    withSourcesJar()
+task sourcesJar(type: Jar) {
+    group "publishing"
+    description "Generates source jar"
+    archiveClassifier.set("sources")
+    from kotlin.sourceSets.main.kotlin.srcDirs
 }
 
 task javadocJar(type: Jar, dependsOn: dokkaJavadoc) {
@@ -33,53 +38,70 @@ artifacts {
     archives javadocJar
 }
 
-
-publishing {
-    publications {
-        bintray(MavenPublication) {
-            from components.java
-            groupId project.groupId
-            artifactId moduleArtifactId
-            version = project.versionName
-        }
-    }
-}
-
-apply plugin: "com.jfrog.bintray"
-
 Properties properties = new Properties()
 def propertiesFile = project.rootProject.file("${System.properties['user.home']}/.gradle/gradle.properties")
 if (propertiesFile.exists()) {
     properties.load(propertiesFile.newDataInputStream())
 }
-def bintrayUser = properties.getProperty("bintrayUser") ?: System.getenv("BINTRAY_USER")
-def bintrayApiKey = properties.getProperty("bintrayApiKey") ?: System.getenv("BINTRAY_API_KEY")
+def mavenCentralUrl = properties.getProperty("sonatypeRepo") ?: project.sonatypeRepo
+def mavenCentralUserName = properties.getProperty("sonatypeUserName") ?: project.sonatypeUserName
+def mavenCentralPassword = properties.getProperty("sonatypePassword") ?: project.sonatypePassword
 
-bintray {
-    user = bintrayUser
-    key = bintrayApiKey
-    configurations = ["archives"]
-    publications = ["bintray"]
-    override = true
-    publish = false
-    dryRun = false
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.java
+                groupId = project.groupId
+                artifactId = project.artifactId
+                version = project.versionName
 
-    pkg {
-        repo = project.packageRepository
-        name = project.packageName
-        desc = project.packageDescription
-        websiteUrl = project.packageWebsiteUrl
-        issueTrackerUrl = project.packageIssueTrackingUrl
-        vcsUrl = project.packageVcsUrl
-        licenses = project.packageLicenses
-        labels = project.packageLabels
-        publicDownloadNumbers = true
+                artifact sourcesJar {
+                    classifier "sources"
+                }
 
-        version {
-            name = project.versionName
-            desc = project.versionDescription
-            released = new Date()
-            vcsTag = project.versionVcsTag
+                artifact javadocJar {
+                    classifier "javadoc"
+                }
+
+                pom {
+                    name = project.packageName
+                    description = project.packageDescription
+                    url = project.packageWebsiteUrl
+                    licenses {
+                        license {
+                            name = project.packageLicenseApacheName
+                            url = project.packageLicenseApacheUrl
+                        }
+                    }
+                    scm {
+                        connection = project.packageScmConnection
+                        developerConnection = project.packageScmDeveloperConnection
+                        url = project.packageWebsiteUrl
+                    }
+                    developers {
+                        developer {
+                            id = packageDeveloperId
+                            name = packageDeveloperName
+                            email = packageDeveloperEmail
+                        }
+                    }
+                }
+
+                repositories {
+                    maven {
+                        name project.mavenCentralPublicationName
+                        url = uri(mavenCentralUrl)
+                        credentials {
+                            username = mavenCentralUserName
+                            password = mavenCentralPassword
+                        }
+                    }
+                }
+            }
         }
+    }
+    signing {
+        sign publishing.publications.release
     }
 }
