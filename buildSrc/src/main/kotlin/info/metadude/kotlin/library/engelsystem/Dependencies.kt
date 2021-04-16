@@ -7,7 +7,7 @@ object GradlePlugins {
     private object Versions {
         const val bintray = "1.8.5"
         const val dokka = "1.4.30"
-        const val kotlin = "1.4.31"
+        const val kotlin = "1.4.32"
         const val versions = "0.36.0"
     }
 
@@ -21,8 +21,8 @@ object Libs {
 
     private object Versions {
         const val junitJupiter = "5.7.1"
-        const val kotlinCoroutines = "1.4.2"
-        const val moshi = "1.11.0"
+        const val kotlinCoroutines = "1.4.3"
+        const val moshi = "1.12.0"
         const val okhttp = "3.12.13"
         const val retrofit = "2.6.4"
         const val threetenbp = "1.5.0"
