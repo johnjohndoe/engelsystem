@@ -6,6 +6,8 @@
 
 ### Changes
 
+* Use kotlin v.1.5.21.
+* Use kotlinx-coroutines-core v.1.5.1 used in tests.
 * Use threetenbp v.1.5.1.
 
 
