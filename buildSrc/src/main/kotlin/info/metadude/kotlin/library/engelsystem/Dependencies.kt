@@ -8,7 +8,7 @@ object GradlePlugins {
         const val bintray = "1.8.5"
         const val dokka = "1.4.30"
         const val kotlin = "1.4.32"
-        const val versions = "0.36.0"
+        const val versions = "0.39.0"
     }
 
     const val bintray = "com.jfrog.bintray.gradle:gradle-bintray-plugin:${Versions.bintray}"
