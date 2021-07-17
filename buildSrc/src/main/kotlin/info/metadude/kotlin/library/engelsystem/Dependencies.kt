@@ -5,13 +5,11 @@ package info.metadude.kotlin.library.engelsystem
 object GradlePlugins {
 
     private object Versions {
-        const val bintray = "1.8.5"
         const val dokka = "1.4.30"
         const val kotlin = "1.4.32"
         const val versions = "0.39.0"
     }
 
-    const val bintray = "com.jfrog.bintray.gradle:gradle-bintray-plugin:${Versions.bintray}"
     const val dokka = "org.jetbrains.dokka:dokka-gradle-plugin:${Versions.dokka}"
     const val kotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
     const val versions = "com.github.ben-manes:gradle-versions-plugin:${Versions.versions}"
