@@ -5,13 +5,11 @@ package info.metadude.kotlin.library.engelsystem
 object GradlePlugins {
 
     private object Versions {
-        const val bintray = "1.8.5"
-        const val dokka = "1.4.30"
-        const val kotlin = "1.4.32"
-        const val versions = "0.36.0"
+        const val dokka = "1.5.0"
+        const val kotlin = "1.5.21"
+        const val versions = "0.39.0"
     }
 
-    const val bintray = "com.jfrog.bintray.gradle:gradle-bintray-plugin:${Versions.bintray}"
     const val dokka = "org.jetbrains.dokka:dokka-gradle-plugin:${Versions.dokka}"
     const val kotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
     const val versions = "com.github.ben-manes:gradle-versions-plugin:${Versions.versions}"
@@ -20,13 +18,13 @@ object GradlePlugins {
 object Libs {
 
     private object Versions {
-        const val junitJupiter = "5.7.1"
-        const val kotlinCoroutines = "1.4.3"
+        const val junitJupiter = "5.7.2"
+        const val kotlinCoroutines = "1.5.1"
         const val moshi = "1.12.0"
         const val okhttp = "3.12.13"
         const val retrofit = "2.6.4"
-        const val threetenbp = "1.5.0"
-        const val truth = "1.1.2"
+        const val threetenbp = "1.5.1"
+        const val truth = "1.1.3"
     }
 
     const val junitJupiterApi = "org.junit.jupiter:junit-jupiter-api:${Versions.junitJupiter}"
