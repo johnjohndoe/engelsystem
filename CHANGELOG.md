@@ -1,5 +1,15 @@
 # Engelsystem changelog
 
+## NEXT
+
+*Not published yet*
+
+### Changes
+
+* Use kotlin v.1.5.30.
+* Use kotlinx-coroutines-core v.1.5.2 used in tests.
+
+
 ## [v.5.2.0](https://github.com/johnjohndoe/engelsystem/releases/tag/v.5.2.0)
 
 * Published: 2021-07-17

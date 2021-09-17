@@ -5,8 +5,8 @@ package info.metadude.kotlin.library.engelsystem
 object GradlePlugins {
 
     private object Versions {
-        const val dokka = "1.5.0"
-        const val kotlin = "1.5.21"
+        const val dokka = "1.5.30"
+        const val kotlin = "1.5.30"
         const val versions = "0.39.0"
     }
 
@@ -18,8 +18,8 @@ object GradlePlugins {
 object Libs {
 
     private object Versions {
-        const val junitJupiter = "5.7.2"
-        const val kotlinCoroutines = "1.5.1"
+        const val junitJupiter = "5.8.0"
+        const val kotlinCoroutines = "1.5.2"
         const val moshi = "1.12.0"
         const val okhttp = "3.12.13"
         const val retrofit = "2.6.4"
