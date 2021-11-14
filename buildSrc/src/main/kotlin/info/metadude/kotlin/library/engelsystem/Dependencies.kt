@@ -23,7 +23,7 @@ object Libs {
         const val moshi = "1.12.0"
         const val okhttp = "3.12.13"
         const val retrofit = "2.6.4"
-        const val threetenbp = "1.5.1"
+        const val threetenbp = "1.5.2"
         const val truth = "1.1.3"
     }
 
