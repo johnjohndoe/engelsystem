@@ -1,5 +1,14 @@
 # Engelsystem changelog
 
+## NEXT
+
+* Not published yet.
+
+### Changes
+
+* Target JDK 11.
+
+
 ## [v.6.0.0](https://github.com/johnjohndoe/engelsystem/releases/tag/v.6.0.0)
 
 * Published: 2021-12-10
