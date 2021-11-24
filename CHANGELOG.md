@@ -6,6 +6,8 @@
 
 ### Changes
 
+* Use moshi v.1.13.0.
+* Use kotlin v.1.6.10.
 * Use kotlinx-coroutines-test v.1.6.0.
 * Use threetenbp v.1.6.0.
 * Target JDK 11.
