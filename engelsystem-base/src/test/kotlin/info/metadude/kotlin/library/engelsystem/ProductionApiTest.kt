@@ -6,7 +6,7 @@ import info.metadude.kotlin.library.engelsystem.utils.UserAgentInterceptor
 import kotlinx.coroutines.runBlocking
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import org.junit.Assert.fail
+import org.junit.jupiter.api.Assertions.fail
 import org.junit.jupiter.api.Test
 import org.threeten.bp.ZonedDateTime
 import retrofit2.awaitResponse
