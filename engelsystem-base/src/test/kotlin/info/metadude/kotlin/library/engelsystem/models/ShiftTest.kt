@@ -8,14 +8,18 @@ import org.threeten.bp.ZonedDateTime
 class ShiftTest {
 
     @Test
-    fun `Assert a shift can be constructed`() {
+    fun `Assert a shift with minimal parameters can be constructed`() {
+        val startsAt = ZonedDateTime.now()
+        val endsAt = ZonedDateTime.now().plusHours(1)
         assertThat(
             Shift(
                 userComment = "comment",
-                endsAt = ZonedDateTime.now(),
+                endsAtDate = endsAt,
                 locationDescription = "",
                 locationUrl = "https://example1.com",
+                startsAtDate = startsAt,
                 talkUrl = "https://example2.com",
+                timeZoneName = "Europe/Berlin",
                 timeZoneOffset = ZoneOffset.UTC
             )
         ).isNotNull()
