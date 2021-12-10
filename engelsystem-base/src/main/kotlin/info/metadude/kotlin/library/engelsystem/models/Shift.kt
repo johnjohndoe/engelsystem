@@ -22,8 +22,19 @@ data class Shift internal constructor(
     /**
      * Unix timestamp of when the shift ends.
      */
+    @Deprecated(
+        message = "Use endsAtDate instead." +
+                " See https://github.com/engelsystem/engelsystem/issues/695",
+        ReplaceWith("endsAtDate")
+    )
     @Json(name = "end")
     internal val endsAtInstant: Instant = DEFAULT_INSTANT,
+
+    /**
+     * Date and time with time zone offset of when the shift ends, RFC3339 compliant (Y-m-d\TH:i:sP).
+     */
+    @Json(name = "end_date")
+    val endsAtDate: ZonedDateTime,
 
     /**
      * Description of the shift location.
@@ -58,8 +69,19 @@ data class Shift internal constructor(
     /**
      * Unix timestamp of when the shift starts.
      */
+    @Deprecated(
+        message = "Use startsAtDate instead." +
+                " See https://github.com/engelsystem/engelsystem/issues/695",
+        ReplaceWith("startsAtDate")
+    )
     @Json(name = "start")
     internal val startsAtInstant: Instant = DEFAULT_INSTANT,
+
+    /**
+     * Date and time with time zone offset of when the shift starts, RFC3339 compliant (Y-m-d\TH:i:sP).
+     */
+    @Json(name = "start_date")
+    val startsAtDate: ZonedDateTime,
 
     /**
      * Title of the associated talk in case the shift happens at a talk.
@@ -76,8 +98,18 @@ data class Shift internal constructor(
     /**
      * Time zone offset associated with the time stamps in this class. Example: "+01:00"
      */
+    @Deprecated(
+        message = "Retrieve the time zone offset from either startsAtDate or endsAtDate. " +
+                "See https://github.com/engelsystem/engelsystem/issues/695"
+    )
     @Json(name = "timezone")
     val timeZoneOffset: ZoneOffset = DEFAULT_ZONE_OFFSET,
+
+    /**
+     * Time zone name associated with the physical location of the event, e.g. "Europe/Berlin".
+     */
+    @Json(name = "event_timezone")
+    val timeZoneName: String,
 
     /**
      * Shift types ids are not fixed. They can be assigned whenever an instance of the Engelsystem is launched.
@@ -90,27 +122,33 @@ data class Shift internal constructor(
     constructor(
         userComment: String = "",
         endsAt: ZonedDateTime = DEFAULT_ZONED_DATE_TIME,
+        endsAtDate: ZonedDateTime = DEFAULT_ZONED_DATE_TIME,
         locationDescription: String = "",
         locationName: String = "",
         locationUrl: String = "",
         name: String = "",
         sID: Int = 0,
         startsAt: ZonedDateTime = DEFAULT_ZONED_DATE_TIME,
+        startsAtDate: ZonedDateTime = DEFAULT_ZONED_DATE_TIME,
         talkTitle: String = "",
         talkUrl: String = "",
+        timeZoneName: String = "",
         timeZoneOffset: ZoneOffset = DEFAULT_ZONE_OFFSET,
         typeId: Int = 0
     ) : this(
         userComment = userComment,
+        endsAtDate = endsAtDate,
         endsAtInstant = endsAt.toInstant(),
         locationDescriptionString = locationDescription,
         locationName = locationName,
         locationUrlString = locationUrl,
         name = name,
         sID = sID,
+        startsAtDate = startsAtDate,
         startsAtInstant = startsAt.toInstant(),
         talkTitle = talkTitle,
         talkUrlString = talkUrl,
+        timeZoneName = timeZoneName,
         timeZoneOffset = timeZoneOffset,
         typeId = typeId
     )
@@ -125,6 +163,11 @@ data class Shift internal constructor(
     /**
      * Date and time with time zone offset of when the shift ends.
      */
+    @Deprecated(
+        message = "Use endsAtDate instead." +
+                " See https://github.com/engelsystem/engelsystem/issues/695",
+        ReplaceWith("endsAtDate")
+    )
     val endsAt: ZonedDateTime
         get() = ZonedDateTime.ofInstant(endsAtInstant, timeZoneOffset)
 
@@ -143,6 +186,11 @@ data class Shift internal constructor(
     /**
      * Date and time with time zone offset of when the shift starts.
      */
+    @Deprecated(
+        message = "Use startsAtDate instead." +
+                " See https://github.com/engelsystem/engelsystem/issues/695",
+        ReplaceWith("startsAtDate")
+    )
     val startsAt: ZonedDateTime
         get() = ZonedDateTime.ofInstant(startsAtInstant, timeZoneOffset)
 
