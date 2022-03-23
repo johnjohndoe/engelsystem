@@ -7,11 +7,13 @@ object GradlePlugins {
     private object Versions {
         const val dokka = "1.6.10"
         const val kotlin = "1.6.10"
+        const val ksp = "1.6.10-1.0.4"
         const val versions = "0.42.0"
     }
 
     const val dokka = "org.jetbrains.dokka:dokka-gradle-plugin:${Versions.dokka}"
     const val kotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
+    const val ksp = "com.google.devtools.ksp:com.google.devtools.ksp.gradle.plugin:${Versions.ksp}"
     const val versions = "com.github.ben-manes:gradle-versions-plugin:${Versions.versions}"
 }
 

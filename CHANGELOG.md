@@ -6,6 +6,7 @@
 
 ### Changes
 
+* Replace kapt with ksp v.1.6.10-1.0.4.
 * Use moshi v.1.13.0.
 * Use kotlin v.1.6.10.
 * Use kotlinx-coroutines-test v.1.6.0.
