@@ -1,5 +1,19 @@
 # Engelsystem changelog
 
+## NEXT
+
+* Not published yet.
+
+### Changes
+
+* Replace kapt with ksp v.1.6.10-1.0.4.
+* Use moshi v.1.13.0.
+* Use kotlin v.1.6.10.
+* Use kotlinx-coroutines-test v.1.6.0.
+* Use threetenbp v.1.6.0.
+* Target JDK 11.
+
+
 ## [v.6.0.0](https://github.com/johnjohndoe/engelsystem/releases/tag/v.6.0.0)
 
 * Published: 2021-12-10

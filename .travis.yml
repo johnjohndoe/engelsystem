@@ -1,9 +1,8 @@
-dist: trusty
+dist: focal
 
 language: java
 
-jdk:
-  - oraclejdk8
+jdk: openjdk11
 
 notifications:
   email: true

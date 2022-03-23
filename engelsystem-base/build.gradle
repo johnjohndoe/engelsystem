@@ -4,16 +4,16 @@ import org.gradle.api.tasks.testing.logging.TestLogEvent
 
 apply plugin: "java-library"
 apply plugin: "kotlin"
-apply plugin: "kotlin-kapt"
+apply plugin: "com.google.devtools.ksp"
 
 compileJava {
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
 }
 
 dependencies {
     implementation Libs.moshi
-    kapt Libs.moshiKotlinCodegen
+    ksp Libs.moshiKotlinCodegen
     implementation Libs.okhttp
     implementation Libs.okhttpLoggingInterceptor
     implementation Libs.retrofit
@@ -23,7 +23,7 @@ dependencies {
     testImplementation Libs.truth
     testImplementation Libs.junitJupiterApi
     testImplementation Libs.junitJupiterEngine
-    testImplementation Libs.kotlinCoroutinesCore
+    testImplementation Libs.kotlinCoroutinesTest
 }
 
 test {

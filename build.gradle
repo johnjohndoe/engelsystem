@@ -11,6 +11,7 @@ buildscript {
     dependencies {
         classpath GradlePlugins.dokka
         classpath GradlePlugins.kotlin
+        classpath GradlePlugins.ksp
         classpath GradlePlugins.versions
     }
 }
