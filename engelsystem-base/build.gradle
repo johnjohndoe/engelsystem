@@ -23,7 +23,7 @@ dependencies {
     testImplementation Libs.truth
     testImplementation Libs.junitJupiterApi
     testImplementation Libs.junitJupiterEngine
-    testImplementation Libs.kotlinCoroutinesCore
+    testImplementation Libs.kotlinCoroutinesTest
 }
 
 test {

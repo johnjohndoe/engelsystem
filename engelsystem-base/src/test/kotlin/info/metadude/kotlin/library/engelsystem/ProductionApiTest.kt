@@ -3,7 +3,8 @@ package info.metadude.kotlin.library.engelsystem
 import com.google.common.truth.Truth.assertThat
 import info.metadude.kotlin.library.engelsystem.models.Shift
 import info.metadude.kotlin.library.engelsystem.utils.UserAgentInterceptor
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.test.runTest
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.junit.jupiter.api.Assertions.fail
@@ -11,6 +12,7 @@ import org.junit.jupiter.api.Test
 import org.threeten.bp.ZonedDateTime
 import retrofit2.awaitResponse
 
+@OptIn(ExperimentalCoroutinesApi::class)
 class ProductionApiTest {
 
     companion object {
@@ -22,7 +24,7 @@ class ProductionApiTest {
     }
 
     @Test
-    fun `Validates a successful shifts response`() = runBlocking {
+    fun `Validates a successful shifts response`() = runTest {
         try {
             val response = service.getShifts(URL_PART_PATH, VALID_API_KEY).awaitResponse()
             if (response.isSuccessful) {
@@ -59,7 +61,7 @@ class ProductionApiTest {
     }
 
     @Test
-    fun `Validates a failure shifts response`() = runBlocking {
+    fun `Validates a failure shifts response`() = runTest {
         try {
             val response = service.getShifts(URL_PART_PATH, INVALID_API_KEY).awaitResponse()
             assertThat(response.isSuccessful).isFalse()

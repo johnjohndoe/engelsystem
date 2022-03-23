@@ -6,6 +6,7 @@
 
 ### Changes
 
+* Use kotlinx-coroutines-test v.1.6.0.
 * Use threetenbp v.1.6.0.
 * Target JDK 11.
 
