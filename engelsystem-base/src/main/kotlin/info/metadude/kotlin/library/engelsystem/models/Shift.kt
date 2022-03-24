@@ -3,6 +3,7 @@ package info.metadude.kotlin.library.engelsystem.models
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import com.squareup.moshi.recipes.DefaultOnDataMismatchAdapter
 import org.threeten.bp.Instant
 import org.threeten.bp.ZoneOffset
 import org.threeten.bp.ZonedDateTime
@@ -11,7 +12,7 @@ import org.threeten.bp.ZonedDateTime
  * Represents a work unit of an angel.
  */
 @JsonClass(generateAdapter = true)
-data class Shift internal constructor(
+data class Shift constructor(
 
     /**
      * Private comment only visible to the associated user.
@@ -20,27 +21,17 @@ data class Shift internal constructor(
     val userComment: String = "",
 
     /**
-     * Unix timestamp of when the shift ends.
-     */
-    @Deprecated(
-        message = "Use endsAtDate instead." +
-                " See https://github.com/engelsystem/engelsystem/issues/695",
-        ReplaceWith("endsAtDate")
-    )
-    @Json(name = "end")
-    internal val endsAtInstant: Instant = DEFAULT_INSTANT,
-
-    /**
      * Date and time with time zone offset of when the shift ends, RFC3339 compliant (Y-m-d\TH:i:sP).
      */
     @Json(name = "end_date")
-    val endsAtDate: ZonedDateTime,
+    val endsAtDate: ZonedDateTime = DEFAULT_ZONED_DATE_TIME,
 
     /**
      * Description of the shift location.
+     * Empty string if property is missing in JSON response. See [DefaultOnDataMismatchAdapter].
      */
     @Json(name = "description")
-    internal val locationDescriptionString: String? = "",
+    val locationDescription: String = "",
 
     /**
      * Name of the location where the shift takes place.
@@ -50,9 +41,10 @@ data class Shift internal constructor(
 
     /**
      * Link to the location of the shift.
+     * Empty string if property is missing in JSON response. See [DefaultOnDataMismatchAdapter].
      */
     @Json(name = "map_url")
-    internal val locationUrlString: String? = "",
+    val locationUrl: String = "",
 
     /**
      * Name of the shift.
@@ -67,21 +59,10 @@ data class Shift internal constructor(
     val sID: Int = 0,
 
     /**
-     * Unix timestamp of when the shift starts.
-     */
-    @Deprecated(
-        message = "Use startsAtDate instead." +
-                " See https://github.com/engelsystem/engelsystem/issues/695",
-        ReplaceWith("startsAtDate")
-    )
-    @Json(name = "start")
-    internal val startsAtInstant: Instant = DEFAULT_INSTANT,
-
-    /**
      * Date and time with time zone offset of when the shift starts, RFC3339 compliant (Y-m-d\TH:i:sP).
      */
     @Json(name = "start_date")
-    val startsAtDate: ZonedDateTime,
+    val startsAtDate: ZonedDateTime = DEFAULT_ZONED_DATE_TIME,
 
     /**
      * Title of the associated talk in case the shift happens at a talk.
@@ -91,19 +72,10 @@ data class Shift internal constructor(
 
     /**
      * Link of the associated talk in case the shift happens at a talk.
+     * Empty string if property is missing in JSON response. See [DefaultOnDataMismatchAdapter].
      */
     @Json(name = "URL")
-    internal val talkUrlString: String? = "",
-
-    /**
-     * Time zone offset associated with the time stamps in this class. Example: "+01:00"
-     */
-    @Deprecated(
-        message = "Retrieve the time zone offset from either startsAtDate or endsAtDate. " +
-                "See https://github.com/engelsystem/engelsystem/issues/695"
-    )
-    @Json(name = "timezone")
-    val timeZoneOffset: ZoneOffset = DEFAULT_ZONE_OFFSET,
+    val talkUrl: String = "",
 
     /**
      * Time zone name associated with the physical location of the event, e.g. "Europe/Berlin".
@@ -119,85 +91,11 @@ data class Shift internal constructor(
 
 ) {
 
-    constructor(
-        userComment: String = "",
-        endsAt: ZonedDateTime = DEFAULT_ZONED_DATE_TIME,
-        endsAtDate: ZonedDateTime = DEFAULT_ZONED_DATE_TIME,
-        locationDescription: String = "",
-        locationName: String = "",
-        locationUrl: String = "",
-        name: String = "",
-        sID: Int = 0,
-        startsAt: ZonedDateTime = DEFAULT_ZONED_DATE_TIME,
-        startsAtDate: ZonedDateTime = DEFAULT_ZONED_DATE_TIME,
-        talkTitle: String = "",
-        talkUrl: String = "",
-        timeZoneName: String = "",
-        timeZoneOffset: ZoneOffset = DEFAULT_ZONE_OFFSET,
-        typeId: Int = 0
-    ) : this(
-        userComment = userComment,
-        endsAtDate = endsAtDate,
-        endsAtInstant = endsAt.toInstant(),
-        locationDescriptionString = locationDescription,
-        locationName = locationName,
-        locationUrlString = locationUrl,
-        name = name,
-        sID = sID,
-        startsAtDate = startsAtDate,
-        startsAtInstant = startsAt.toInstant(),
-        talkTitle = talkTitle,
-        talkUrlString = talkUrl,
-        timeZoneName = timeZoneName,
-        timeZoneOffset = timeZoneOffset,
-        typeId = typeId
-    )
-
     companion object {
         internal val DEFAULT_ZONE_OFFSET = ZoneOffset.UTC
-        internal val DEFAULT_INSTANT = Instant.EPOCH
-        internal val DEFAULT_ZONED_DATE_TIME = ZonedDateTime.ofInstant(DEFAULT_INSTANT, DEFAULT_ZONE_OFFSET)
+        private val DEFAULT_INSTANT = Instant.EPOCH
+        internal val DEFAULT_ZONED_DATE_TIME =
+            ZonedDateTime.ofInstant(DEFAULT_INSTANT, DEFAULT_ZONE_OFFSET)
     }
-
-
-    /**
-     * Date and time with time zone offset of when the shift ends.
-     */
-    @Deprecated(
-        message = "Use endsAtDate instead." +
-                " See https://github.com/engelsystem/engelsystem/issues/695",
-        ReplaceWith("endsAtDate")
-    )
-    val endsAt: ZonedDateTime
-        get() = ZonedDateTime.ofInstant(endsAtInstant, timeZoneOffset)
-
-    /**
-     * Description of the shift location.
-     */
-    val locationDescription: String
-        get() = locationDescriptionString ?: ""
-
-    /**
-     * Link to the location of the shift.
-     */
-    val locationUrl: String
-        get() = locationUrlString ?: ""
-
-    /**
-     * Date and time with time zone offset of when the shift starts.
-     */
-    @Deprecated(
-        message = "Use startsAtDate instead." +
-                " See https://github.com/engelsystem/engelsystem/issues/695",
-        ReplaceWith("startsAtDate")
-    )
-    val startsAt: ZonedDateTime
-        get() = ZonedDateTime.ofInstant(startsAtInstant, timeZoneOffset)
-
-    /**
-     * Link of the associated talk in case the shift happens at a talk.
-     */
-    val talkUrl: String
-        get() = talkUrlString ?: ""
 
 }

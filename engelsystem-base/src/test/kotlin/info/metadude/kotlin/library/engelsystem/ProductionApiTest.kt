@@ -45,14 +45,9 @@ class ProductionApiTest {
         assertThat(shift.talkTitle).isNotNull()
         assertThat(shift.talkUrl).isNotNull()
         assertThat(shift.userComment).isNotNull()
-        assertThat(shift.startsAtInstant).isNotEqualTo(Shift.DEFAULT_INSTANT)
-        assertThat(shift.endsAtInstant).isNotEqualTo(Shift.DEFAULT_INSTANT)
-        assertThat(shift.startsAt).isNotEqualTo(DEFAULT_DATE_TIME)
         assertThat(shift.startsAtDate).isNotEqualTo(DEFAULT_DATE_TIME)
-        assertThat(shift.endsAt).isNotEqualTo(DEFAULT_DATE_TIME)
         assertThat(shift.endsAtDate).isNotEqualTo(DEFAULT_DATE_TIME)
         assertThat(shift.timeZoneName).isNotEmpty()
-        assertThat(shift.timeZoneOffset).isNotNull()
     }
 
     @Test

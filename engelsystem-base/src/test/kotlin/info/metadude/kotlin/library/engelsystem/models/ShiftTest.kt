@@ -2,7 +2,6 @@ package info.metadude.kotlin.library.engelsystem.models
 
 import com.google.common.truth.Truth.assertThat
 import org.junit.jupiter.api.Test
-import org.threeten.bp.ZoneOffset
 import org.threeten.bp.ZonedDateTime
 
 class ShiftTest {
@@ -20,7 +19,6 @@ class ShiftTest {
                 startsAtDate = startsAt,
                 talkUrl = "https://example2.com",
                 timeZoneName = "Europe/Berlin",
-                timeZoneOffset = ZoneOffset.UTC
             )
         ).isNotNull()
     }

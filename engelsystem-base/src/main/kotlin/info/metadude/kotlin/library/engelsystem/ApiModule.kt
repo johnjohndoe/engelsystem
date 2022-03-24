@@ -1,6 +1,7 @@
 package info.metadude.kotlin.library.engelsystem
 
 import com.squareup.moshi.Moshi
+import com.squareup.moshi.recipes.DefaultOnDataMismatchAdapter
 import info.metadude.kotlin.library.engelsystem.adapters.InstantJsonAdapter
 import info.metadude.kotlin.library.engelsystem.adapters.ZoneOffsetJsonAdapter
 import info.metadude.kotlin.library.engelsystem.adapters.ZonedDateTimeJsonAdapter
@@ -25,6 +26,7 @@ object ApiModule : EngelsystemApi {
             .add(Instant::class.java, InstantJsonAdapter())
             .add(ZonedDateTime::class.java, ZonedDateTimeJsonAdapter())
             .add(ZoneOffset::class.java, ZoneOffsetJsonAdapter())
+            .add(DefaultOnDataMismatchAdapter.newFactory(String::class.java, ""))
             .build()
     }
 
