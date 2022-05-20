@@ -11,10 +11,9 @@ import org.threeten.bp.ZonedDateTime
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
-object ApiModule {
+object ApiModule : EngelsystemApi {
 
-    @JvmStatic
-    fun provideEngelsystemService(
+    override fun provideEngelsystemService(
         baseUrl: String,
         okHttpClient: OkHttpClient
     ): EngelsystemService {

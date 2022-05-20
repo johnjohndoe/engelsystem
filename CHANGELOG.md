@@ -6,6 +6,8 @@
 
 ### Changes
 
+* Introduce `EngelsystemApi` interface to ease dependency injection for projects using this library.
+  * Remove `@JvmStatic` from `ApiModule#provideEngelsystemService` (only affects Java usage).
 * Use kotlin v.1.6.21 and ksp v.1.6.21-1.0.5.
 
 
