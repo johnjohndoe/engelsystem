@@ -11,6 +11,14 @@ compileJava {
     targetCompatibility = JavaVersion.VERSION_11
 }
 
+compileKotlin {
+    kotlinOptions {
+        freeCompilerArgs = [
+            "-opt-in=kotlin.RequiresOptIn"
+        ]
+    }
+}
+
 dependencies {
     implementation Libs.moshi
     ksp Libs.moshiKotlinCodegen
