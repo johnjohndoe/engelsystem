@@ -1,5 +1,14 @@
 # Engelsystem changelog
 
+## NEXT
+
+* Published: Not released yet.
+
+### Changes
+
+* Use kotlin v.1.6.21 and ksp v.1.6.21-1.0.5.
+
+
 ## [v.7.0.0](https://github.com/johnjohndoe/engelsystem/releases/tag/v.7.0.0)
 
 * Published: 2022-03-24
