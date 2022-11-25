@@ -6,6 +6,7 @@
 
 ### Changes
 
+* Use moshi v.1.14.0.
 * Use kotlinx-coroutines-test v.1.6.4.
 * Use threetenbp v.1.6.4.
 
