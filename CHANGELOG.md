@@ -9,7 +9,7 @@
 * Use kotlin v.1.7.21 and ksp v.1.7.21-1.0.8 & dokka v.1.7.20.
 * Use moshi v.1.14.0.
 * Use kotlinx-coroutines-test v.1.6.4.
-* Use threetenbp v.1.6.4.
+* Use threetenbp v.1.6.5.
 
 
 ## [v.7.1.0](https://github.com/johnjohndoe/engelsystem/releases/tag/v.7.1.0)
