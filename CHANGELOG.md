@@ -6,6 +6,7 @@
 
 ### Changes
 
+* Use retrofit 2.9.0.
 * Use okhttp 4.11.0.
 * Use moshi v.1.15.0.
 * Use kotlin v.1.8.22 and ksp v.1.8.22-1.0.11 & dokka v.1.8.20.
