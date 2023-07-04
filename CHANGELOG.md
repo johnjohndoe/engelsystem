@@ -6,6 +6,7 @@
 
 ### Changes
 
+* Use moshi v.1.15.0.
 * Use kotlin v.1.8.22 and ksp v.1.8.22-1.0.11 & dokka v.1.8.20.
 * Use kotlinx-coroutines-test v.1.7.3.
 * Use threetenbp v.1.6.8.
