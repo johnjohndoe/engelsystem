@@ -5,9 +5,9 @@ package info.metadude.kotlin.library.engelsystem
 object GradlePlugins {
 
     private object Versions {
-        const val dokka = "1.7.20"
-        const val kotlin = "1.7.22"
-        const val ksp = "1.7.22-1.0.8"
+        const val dokka = "1.8.20"
+        const val kotlin = "1.8.22"
+        const val ksp = "1.8.22-1.0.11"
         const val versions = "0.48.0"
     }
 
