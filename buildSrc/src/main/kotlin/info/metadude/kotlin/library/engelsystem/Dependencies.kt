@@ -26,7 +26,7 @@ object Libs {
         const val okhttp = "3.12.13"
         const val retrofit = "2.6.4"
         const val threetenbp = "1.6.5"
-        const val truth = "1.1.3"
+        const val truth = "1.1.5"
     }
 
     const val junitJupiterApi = "org.junit.jupiter:junit-jupiter-api:${Versions.junitJupiter}"
