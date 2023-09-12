@@ -1,5 +1,19 @@
 # Engelsystem changelog
 
+## NEXT
+
+* Not published yet.
+
+### Changes
+
+* Use retrofit 2.9.0.
+* Use okhttp 4.11.0.
+* Use moshi v.1.15.0.
+* Use kotlin v.1.8.22 and ksp v.1.8.22-1.0.11 & dokka v.1.8.20.
+* Use kotlinx-coroutines-test v.1.7.3.
+* Use threetenbp v.1.6.8.
+
+
 ## [v.7.2.0](https://github.com/johnjohndoe/engelsystem/releases/tag/v.7.2.0)
 
 * Published: 2022-12-16
