@@ -20,7 +20,10 @@ class ShiftTest {
                 startsAtDate = startsAt,
                 talkUrl = "https://example2.com",
                 timeZoneName = "Europe/Berlin",
-                timeZoneOffset = ZoneOffset.UTC
+                timeZoneOffset = ZoneOffset.UTC,
+                typeDescription = "Textual description of the shift type",
+                typeId = 42,
+                typeName = "Name of the shift type",
             )
         ).isNotNull()
     }

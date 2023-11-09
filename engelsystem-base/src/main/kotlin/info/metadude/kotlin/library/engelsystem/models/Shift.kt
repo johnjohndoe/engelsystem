@@ -112,10 +112,22 @@ data class Shift internal constructor(
     val timeZoneName: String,
 
     /**
+     * Textual description of the shift type. Markdown formatted.
+     */
+    @Json(name = "shifttype_description")
+    val typeDescription: String = "",
+
+    /**
      * Shift types ids are not fixed. They can be assigned whenever an instance of the Engelsystem is launched.
      */
     @Json(name = "shifttype_id")
-    val typeId: Int = 0
+    val typeId: Int = 0,
+
+    /**
+     * Textual name of the shift type.
+     */
+    @Json(name = "shifttype_name")
+    val typeName: String = "",
 
 ) {
 
@@ -134,7 +146,9 @@ data class Shift internal constructor(
         talkUrl: String = "",
         timeZoneName: String = "",
         timeZoneOffset: ZoneOffset = DEFAULT_ZONE_OFFSET,
-        typeId: Int = 0
+        typeDescription: String = "",
+        typeId: Int = 0,
+        typeName: String = ""
     ) : this(
         userComment = userComment,
         endsAtDate = endsAtDate,
@@ -150,7 +164,9 @@ data class Shift internal constructor(
         talkUrlString = talkUrl,
         timeZoneName = timeZoneName,
         timeZoneOffset = timeZoneOffset,
-        typeId = typeId
+        typeDescription = typeDescription,
+        typeId = typeId,
+        typeName = typeName
     )
 
     companion object {

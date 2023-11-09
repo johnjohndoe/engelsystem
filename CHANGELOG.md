@@ -6,6 +6,7 @@
 
 ### Changes
 
+* Add new `typeName` and `typeDescription` properties to `Shift` model. See: https://github.com/engelsystem/engelsystem/pull/1233.
 * Replace `Comment` with new clearer named `user_comment` JSON property. Both expose the same value.
 * Use kotlin v.1.9.10 and ksp v.1.9.10-1.0.13 & dokka v.1.9.10.
 * Use okhttp 4.12.0
