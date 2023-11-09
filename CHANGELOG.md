@@ -1,5 +1,14 @@
 # Engelsystem changelog
 
+## NEXT
+
+* Not published yet.
+
+### Changes
+
+* Use okhttp 4.12.0
+
+
 ## [v.7.3.0](https://github.com/johnjohndoe/engelsystem/releases/tag/v.7.3.0)
 
 * Published: 2023-09-12
