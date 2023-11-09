@@ -3,7 +3,6 @@ package info.metadude.kotlin.library.engelsystem
 import com.google.common.truth.Truth.assertThat
 import info.metadude.kotlin.library.engelsystem.models.Shift
 import info.metadude.kotlin.library.engelsystem.utils.UserAgentInterceptor
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -12,7 +11,6 @@ import org.junit.jupiter.api.Test
 import org.threeten.bp.ZonedDateTime
 import retrofit2.HttpException
 
-@OptIn(ExperimentalCoroutinesApi::class)
 class ProductionApiTest {
 
     companion object {
