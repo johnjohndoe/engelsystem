@@ -14,9 +14,9 @@ import org.threeten.bp.ZonedDateTime
 data class Shift internal constructor(
 
     /**
-     * Private comment only visible to the associated user.
+     * Private comment only visible to the associated user. Plain text formatted.
      */
-    @Json(name = "Comment")
+    @Json(name = "user_comment")
     val userComment: String = "",
 
     /**
