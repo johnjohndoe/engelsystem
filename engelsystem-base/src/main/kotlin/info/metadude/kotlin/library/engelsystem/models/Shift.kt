@@ -55,12 +55,6 @@ data class Shift internal constructor(
     internal val locationUrlString: String? = "",
 
     /**
-     * Name of the shift.
-     */
-    @Json(name = "name")
-    val name: String = "",
-
-    /**
      * ID of the shift.
      */
     @Json(name = "SID")
@@ -138,7 +132,6 @@ data class Shift internal constructor(
         locationDescription: String = "",
         locationName: String = "",
         locationUrl: String = "",
-        name: String = "",
         sID: Int = 0,
         startsAt: ZonedDateTime = DEFAULT_ZONED_DATE_TIME,
         startsAtDate: ZonedDateTime = DEFAULT_ZONED_DATE_TIME,
@@ -156,7 +149,6 @@ data class Shift internal constructor(
         locationDescriptionString = locationDescription,
         locationName = locationName,
         locationUrlString = locationUrl,
-        name = name,
         sID = sID,
         startsAtDate = startsAtDate,
         startsAtInstant = startsAt.toInstant(),

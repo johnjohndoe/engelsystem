@@ -40,7 +40,6 @@ class ProductionApiTest {
         assertThat(shift.typeDescription).isNotNull()
         assertThat(shift.typeId).isGreaterThan(0)
         assertThat(shift.typeName).isNotEmpty()
-        assertThat(shift.name).isNotEmpty()
         assertThat(shift.locationName).isNotEmpty()
         assertThat(shift.locationDescription).isNotNull()
         assertThat(shift.locationUrl).isNotNull()
