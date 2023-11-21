@@ -7,14 +7,15 @@ apply plugin: "org.jetbrains.dokka"
 group = project.groupId
 version = project.versionName
 
-task sourcesJar(type: Jar) {
+tasks.register("sourcesJar", Jar) {
     group "publishing"
     description "Generates source jar"
     archiveClassifier.set("sources")
     from kotlin.sourceSets.main.kotlin.srcDirs
 }
 
-task javadocJar(type: Jar, dependsOn: dokkaJavadoc) {
+tasks.register("javadocJar", Jar) {
+    dependsOn dokkaJavadoc
     group "publishing"
     description "Generates javadocJar based on Dokka"
     archiveClassifier.set("javadoc")
