@@ -6,6 +6,7 @@
 
 ### Changes
 
+* Use kotlin v.1.9.10 and ksp v.1.9.10-1.0.13 & dokka v.1.9.10.
 * Use okhttp 4.12.0
 
 
