@@ -1,6 +1,7 @@
 import info.metadude.kotlin.library.engelsystem.Libs
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 import org.gradle.api.tasks.testing.logging.TestLogEvent
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 apply plugin: "java-library"
 apply plugin: "kotlin"
@@ -9,6 +10,12 @@ apply plugin: "com.google.devtools.ksp"
 compileJava {
     sourceCompatibility = JavaVersion.VERSION_11
     targetCompatibility = JavaVersion.VERSION_11
+}
+
+tasks.withType(KotlinCompile.class).configureEach {
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_11
+    }
 }
 
 dependencies {

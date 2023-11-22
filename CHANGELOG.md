@@ -6,6 +6,7 @@
 
 ### Changes
 
+* **Breaking change:** Build with JVM target 11.
 * **Breaking change:** Remove `name` in favor of `typeName` property for the sake of its clearer name.
 * Add new `typeName` and `typeDescription` properties to `Shift` model. See: https://github.com/engelsystem/engelsystem/pull/1233.
 * Replace `Comment` with new clearer named `user_comment` JSON property. Both expose the same value.
