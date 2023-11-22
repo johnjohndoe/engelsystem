@@ -14,9 +14,9 @@ import org.threeten.bp.ZonedDateTime
 data class Shift internal constructor(
 
     /**
-     * Private comment only visible to the associated user.
+     * Private comment only visible to the associated user. Plain text formatted.
      */
-    @Json(name = "Comment")
+    @Json(name = "user_comment")
     val userComment: String = "",
 
     /**
@@ -53,12 +53,6 @@ data class Shift internal constructor(
      */
     @Json(name = "map_url")
     internal val locationUrlString: String? = "",
-
-    /**
-     * Name of the shift.
-     */
-    @Json(name = "name")
-    val name: String = "",
 
     /**
      * ID of the shift.
@@ -112,10 +106,22 @@ data class Shift internal constructor(
     val timeZoneName: String,
 
     /**
+     * Textual description of the shift type. Markdown formatted.
+     */
+    @Json(name = "shifttype_description")
+    val typeDescription: String = "",
+
+    /**
      * Shift types ids are not fixed. They can be assigned whenever an instance of the Engelsystem is launched.
      */
     @Json(name = "shifttype_id")
-    val typeId: Int = 0
+    val typeId: Int = 0,
+
+    /**
+     * Textual name of the shift type.
+     */
+    @Json(name = "shifttype_name")
+    val typeName: String = "",
 
 ) {
 
@@ -126,7 +132,6 @@ data class Shift internal constructor(
         locationDescription: String = "",
         locationName: String = "",
         locationUrl: String = "",
-        name: String = "",
         sID: Int = 0,
         startsAt: ZonedDateTime = DEFAULT_ZONED_DATE_TIME,
         startsAtDate: ZonedDateTime = DEFAULT_ZONED_DATE_TIME,
@@ -134,7 +139,9 @@ data class Shift internal constructor(
         talkUrl: String = "",
         timeZoneName: String = "",
         timeZoneOffset: ZoneOffset = DEFAULT_ZONE_OFFSET,
-        typeId: Int = 0
+        typeDescription: String = "",
+        typeId: Int = 0,
+        typeName: String = ""
     ) : this(
         userComment = userComment,
         endsAtDate = endsAtDate,
@@ -142,7 +149,6 @@ data class Shift internal constructor(
         locationDescriptionString = locationDescription,
         locationName = locationName,
         locationUrlString = locationUrl,
-        name = name,
         sID = sID,
         startsAtDate = startsAtDate,
         startsAtInstant = startsAt.toInstant(),
@@ -150,7 +156,9 @@ data class Shift internal constructor(
         talkUrlString = talkUrl,
         timeZoneName = timeZoneName,
         timeZoneOffset = timeZoneOffset,
-        typeId = typeId
+        typeDescription = typeDescription,
+        typeId = typeId,
+        typeName = typeName
     )
 
     companion object {
