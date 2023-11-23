@@ -1,5 +1,14 @@
 # Engelsystem changelog
 
+## NEXT
+
+* Not published yet.
+
+### Changes
+
+* **Breaking change:** Make raw response accessible to distinguish between cache or server response. Change `getShifts()` return type from `List<Shift>` to `Response<List<Shift>>`.
+
+
 ## [v.8.0.0](https://github.com/johnjohndoe/engelsystem/releases/tag/v.8.0.0)
 
 * Published: 2023-11-22

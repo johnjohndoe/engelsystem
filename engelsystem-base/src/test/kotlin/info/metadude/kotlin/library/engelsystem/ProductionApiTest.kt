@@ -9,7 +9,6 @@ import okhttp3.logging.HttpLoggingInterceptor
 import org.junit.jupiter.api.Assertions.fail
 import org.junit.jupiter.api.Test
 import org.threeten.bp.ZonedDateTime
-import retrofit2.HttpException
 
 class ProductionApiTest {
 
@@ -23,15 +22,20 @@ class ProductionApiTest {
 
     @Test
     fun `Validates a successful shifts response`() = runTest {
-        try {
-            val shifts = service.getShifts(URL_PART_PATH, VALID_API_KEY)
-            assertThat(shifts).isNotNull()
-            shifts.forEach {
-                assertThat(it).isNotNull()
-                assertShift(it)
+        val response = service.getShifts(URL_PART_PATH, VALID_API_KEY)
+        if (response.isSuccessful) {
+            val shifts = response.body()
+            if (shifts.isNullOrEmpty()) {
+                fail("Shifts body should not be empty.")
+            } else {
+                assertThat(shifts).isNotNull()
+                shifts.forEach {
+                    assertThat(it).isNotNull()
+                    assertShift(it)
+                }
             }
-        } catch (t: Throwable) {
-            fail("Should not throw $t")
+        } else {
+            fail("Should not fail ${response.errorBody().toString()}")
         }
     }
 
@@ -58,14 +62,14 @@ class ProductionApiTest {
 
     @Test
     fun `Validates a failure shifts response`() = runTest {
-        try {
-            service.getShifts(URL_PART_PATH, INVALID_API_KEY)
+        val response = service.getShifts(URL_PART_PATH, INVALID_API_KEY)
+        if (response.isSuccessful) {
             fail("Request should not succeed.")
-        } catch (e: HttpException) {
-            assertThat(e.message()).isEqualTo("Forbidden")
-            assertThat(e.code()).isEqualTo(403)
-            assertThat(e.response()!!.body()).isNull()
-            assertThat(e.response()!!.errorBody()).isNotNull()
+        } else {
+            assertThat(response.message()).isEqualTo("Forbidden")
+            assertThat(response.code()).isEqualTo(403)
+            assertThat(response.body()).isNull()
+            assertThat(response.errorBody()).isNotNull()
         }
     }
 
