@@ -103,6 +103,7 @@ afterEvaluate {
         }
     }
     signing {
+        required { gradle.taskGraph.hasTask("publishReleasePublicationToMavenCentralRepository") }
         sign publishing.publications.release
     }
 }
