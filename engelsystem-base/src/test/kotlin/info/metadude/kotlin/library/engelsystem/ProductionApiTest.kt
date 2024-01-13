@@ -16,7 +16,7 @@ class ProductionApiTest {
     companion object {
         const val BASE_URL = "https://staging.engelsystem.de"
         const val URL_PART_PATH = "test/shifts-json-export"
-        const val VALID_API_KEY = "5dfc078751a0e382d0b96af0ae0fb3bb"
+        const val VALID_API_KEY = "b8bb16fcd23500f2054480faad8df9db0884280fae8242182530e982cf76e87b"
         const val INVALID_API_KEY = "invalid"
         val DEFAULT_DATE_TIME = ZonedDateTime.of(1970, 1, 1, 0, 0, 0, 0, Shift.DEFAULT_ZONE_OFFSET)!!
     }
