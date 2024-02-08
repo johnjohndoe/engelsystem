@@ -1,5 +1,15 @@
 # Engelsystem changelog
 
+## NEXT
+
+* Not published yet.
+
+### Changes
+
+* Use moshi v.1.15.1.
+* Use kotlin v.1.9.22 and ksp v.1.9.22-1.0.17.
+
+
 ## [v.8.0.0](https://github.com/johnjohndoe/engelsystem/releases/tag/v.8.0.0)
 
 * Published: 2023-11-22

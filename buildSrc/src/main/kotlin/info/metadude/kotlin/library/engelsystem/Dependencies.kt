@@ -6,9 +6,9 @@ object GradlePlugins {
 
     private object Versions {
         const val dokka = "1.9.10"
-        const val kotlin = "1.9.10"
-        const val ksp = "1.9.10-1.0.13"
-        const val versions = "0.50.0"
+        const val kotlin = "1.9.22"
+        const val ksp = "1.9.22-1.0.17"
+        const val versions = "0.51.0"
     }
 
     const val dokka = "org.jetbrains.dokka:dokka-gradle-plugin:${Versions.dokka}"
@@ -20,13 +20,13 @@ object GradlePlugins {
 object Libs {
 
     private object Versions {
-        const val junitJupiter = "5.10.1"
+        const val junitJupiter = "5.10.2"
         const val kotlinCoroutines = "1.7.3"
-        const val moshi = "1.15.0"
+        const val moshi = "1.15.1"
         const val okhttp = "4.12.0"
         const val retrofit = "2.9.0"
         const val threetenbp = "1.6.8"
-        const val truth = "1.1.5"
+        const val truth = "1.4.0"
     }
 
     const val junitJupiterApi = "org.junit.jupiter:junit-jupiter-api:${Versions.junitJupiter}"
