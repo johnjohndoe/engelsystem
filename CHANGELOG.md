@@ -6,6 +6,7 @@
 
 ### Changes
 
+* Use moshi v.1.15.1.
 * Use kotlin v.1.9.22 and ksp v.1.9.22-1.0.17.
 
 
