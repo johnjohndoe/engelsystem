@@ -38,6 +38,7 @@ local.properties
 *.ipr
 *.iws
 .idea/
+!.idea/icon.svg
 
 ### Android ###
 # built application files

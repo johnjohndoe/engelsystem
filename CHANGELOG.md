@@ -7,6 +7,7 @@
 ### Changes
 
 * **Breaking change:** Build with JVM target 17.
+* Add project icon to be shown by IntelliJ.
 
 
 ## [v.8.1.0](https://github.com/johnjohndoe/engelsystem/releases/tag/v.8.1.0)
