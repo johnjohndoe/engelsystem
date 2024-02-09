@@ -2,7 +2,7 @@ dist: focal
 
 language: java
 
-jdk: openjdk11
+jdk: openjdk17
 
 notifications:
   email: true
