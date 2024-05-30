@@ -107,3 +107,11 @@ afterEvaluate {
         sign publishing.publications.release
     }
 }
+
+tasks.named("dokkaJavadoc").configure {
+    dependsOn("kspKotlin")
+}
+
+tasks.named("sourcesJar").configure {
+    dependsOn("kspKotlin")
+}
