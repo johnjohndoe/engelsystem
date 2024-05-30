@@ -58,11 +58,11 @@ afterEvaluate {
                 version = project.versionName
 
                 artifact sourcesJar {
-                    classifier "sources"
+                    archiveClassifier = "sources"
                 }
 
                 artifact javadocJar {
-                    classifier "javadoc"
+                    archiveClassifier = "javadoc"
                 }
 
                 pom {
