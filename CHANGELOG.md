@@ -6,6 +6,7 @@
 
 ### Changes
 
+* Use kotlin v.1.9.24 and ksp v.1.9.24-1.0.20.
 * Use dokka v.1.9.20.
 * Use retrofit 2.11.0.
 * Use threetenbp v.1.6.9.
