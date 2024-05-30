@@ -6,6 +6,7 @@
 
 ### Changes
 
+* Use dokka v.1.9.20.
 * Use retrofit 2.11.0.
 * Use threetenbp v.1.6.9.
 * Use kotlinx-coroutines-test v.1.8.1.
