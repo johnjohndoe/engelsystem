@@ -58,11 +58,11 @@ afterEvaluate {
                 version = project.versionName
 
                 artifact sourcesJar {
-                    classifier "sources"
+                    archiveClassifier = "sources"
                 }
 
                 artifact javadocJar {
-                    classifier "javadoc"
+                    archiveClassifier = "javadoc"
                 }
 
                 pom {
@@ -106,4 +106,12 @@ afterEvaluate {
         required { gradle.taskGraph.hasTask("publishReleasePublicationToMavenCentralRepository") }
         sign publishing.publications.release
     }
+}
+
+tasks.named("dokkaJavadoc").configure {
+    dependsOn("kspKotlin")
+}
+
+tasks.named("sourcesJar").configure {
+    dependsOn("kspKotlin")
 }

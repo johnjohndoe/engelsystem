@@ -1,5 +1,18 @@
 # Engelsystem changelog
 
+## NEXT
+
+* Not published yet.
+
+### Changes
+
+* Use kotlin v.1.9.24 and ksp v.1.9.24-1.0.20.
+* Use dokka v.1.9.20.
+* Use retrofit 2.11.0.
+* Use threetenbp v.1.6.9.
+* Use kotlinx-coroutines-test v.1.8.1.
+
+
 ## [v.9.0.0](https://github.com/johnjohndoe/engelsystem/releases/tag/v.9.0.0)
 
 * Published: 2024-02-09
