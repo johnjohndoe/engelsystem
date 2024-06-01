@@ -1,5 +1,4 @@
-[![Build Status](https://travis-ci.com/johnjohndoe/engelsystem.svg?branch=master)](https://travis-ci.com/johnjohndoe/engelsystem) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/info.metadude.kotlin.library.engelsystem/engelsystem-base/badge.svg)](https://maven-badges.herokuapp.com/maven-central/info.metadude.kotlin.library.engelsystem/engelsystem-base) [![JitPack](https://jitpack.io/v/johnjohndoe/engelsystem.svg)][jitpack-engelsystem] [![Apache License](http://img.shields.io/badge/license-Apache%20License%202.0-lightgrey.svg)](http://choosealicense.com/licenses/apache-2.0/)
-
+[![Build Status](https://app.travis-ci.com/johnjohndoe/engelsystem.svg?branch=master)](https://app.travis-ci.com/johnjohndoe/engelsystem) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/info.metadude.kotlin.library.engelsystem/engelsystem-base/badge.svg)](https://maven-badges.herokuapp.com/maven-central/info.metadude.kotlin.library.engelsystem/engelsystem-base) [![JitPack](https://jitpack.io/v/johnjohndoe/engelsystem.svg)][jitpack-engelsystem] [![Apache License](http://img.shields.io/badge/license-Apache%20License%202.0-lightgrey.svg)](http://choosealicense.com/licenses/apache-2.0/)
 
 # Engelsystem library
 
