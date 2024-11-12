@@ -1,5 +1,14 @@
 # Engelsystem changelog
 
+## NEXT
+
+* Not published yet.
+
+### Changes
+
+* Use kotlinx-coroutines-test v.1.9.0.
+
+
 ## [v.9.1.0](https://github.com/johnjohndoe/engelsystem/releases/tag/v.9.1.0)
 
 * Published: 2024-05-30
