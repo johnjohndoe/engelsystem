@@ -10,6 +10,7 @@ import org.threeten.bp.ZonedDateTime
 /**
  * Represents a work unit of an angel.
  */
+@ConsistentCopyVisibility
 @JsonClass(generateAdapter = true)
 data class Shift internal constructor(
 
