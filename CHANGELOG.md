@@ -1,5 +1,16 @@
 # Engelsystem changelog
 
+## NEXT
+
+* Not published yet.
+
+### Changes
+
+* Use kotlin v.2.0.21 and ksp v.2.0.21-1.0.27.
+* Use threetenbp v.1.7.0.
+* Use kotlinx-coroutines-test v.1.9.0.
+
+
 ## [v.9.1.0](https://github.com/johnjohndoe/engelsystem/releases/tag/v.9.1.0)
 
 * Published: 2024-05-30
