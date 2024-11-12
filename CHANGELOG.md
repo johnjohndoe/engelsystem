@@ -6,6 +6,7 @@
 
 ### Changes
 
+* Use threetenbp v.1.7.0.
 * Use kotlinx-coroutines-test v.1.9.0.
 
 
