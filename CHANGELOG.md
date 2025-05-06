@@ -1,5 +1,13 @@
 # Engelsystem changelog
 
+## NEXT
+
+* Not published yet.
+
+### Changes
+
+* Fix URL of Apache license.
+
 ## [v.9.2.0](https://github.com/johnjohndoe/engelsystem/releases/tag/v.9.2.0)
 
 * Published: 2024-11-12
