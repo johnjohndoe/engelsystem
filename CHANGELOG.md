@@ -6,6 +6,7 @@
 
 ### Changes
 
+* Use dokka v.2.0.0.
 * Use kotlin v.2.1.20 and ksp v.2.1.20-2.0.1.
 * Use kotlinx-coroutines-test v.1.10.2.
 * Use moshi v.1.15.2.

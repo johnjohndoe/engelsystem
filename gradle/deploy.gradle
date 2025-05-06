@@ -1,7 +1,7 @@
 apply plugin: "java"
 apply plugin: "signing"
 apply plugin: "maven-publish"
-apply plugin: "org.jetbrains.dokka"
+apply plugin: "org.jetbrains.dokka-javadoc"
 
 // javadocJar and sourcesJar tasks pick up group and version
 group = project.groupId
@@ -15,22 +15,20 @@ tasks.register("sourcesJar", Jar) {
 }
 
 tasks.register("javadocJar", Jar) {
-    dependsOn dokkaJavadoc
+    dependsOn dokkaGeneratePublicationJavadoc
     group "publishing"
     description "Generates javadocJar based on Dokka"
     archiveClassifier.set("javadoc")
-    from dokkaJavadoc.outputDirectory
+    from dokkaGeneratePublicationJavadoc.outputDirectory
 }
 
-dokkaJavadoc.configure {
+dokka {
     moduleName.set("Engelsystem")
-    dokkaSourceSets {
-        named("main") {
-            sourceLink {
-                localDirectory.set(file("engelsystem-base/src/main/kotlin"))
-                remoteUrl.set(java.net.URL("https://github.com/johnjohndoe/engelsystem/blob/master/engelsystem-base/src/main/kotlin"))
-                remoteLineSuffix.set("#L")
-            }
+    dokkaSourceSets.main {
+        sourceLink {
+            localDirectory.set(file("engelsystem-base/src/main/kotlin"))
+            remoteUrl("https://github.com/johnjohndoe/engelsystem/blob/master/engelsystem-base/src/main/kotlin")
+            remoteLineSuffix.set("#L")
         }
     }
 }
@@ -108,7 +106,7 @@ afterEvaluate {
     }
 }
 
-tasks.named("dokkaJavadoc").configure {
+tasks.named("dokkaGeneratePublicationJavadoc").configure {
     dependsOn("kspKotlin")
 }
 
