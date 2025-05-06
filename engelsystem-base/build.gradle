@@ -30,7 +30,8 @@ dependencies {
 
     testImplementation Libs.truth
     testImplementation Libs.junitJupiterApi
-    testImplementation Libs.junitJupiterEngine
+    testRuntimeOnly Libs.junitJupiterEngine
+    testRuntimeOnly Libs.junitPlatformLauncher
     testImplementation Libs.kotlinCoroutinesTest
 }
 
