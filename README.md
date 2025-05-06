@@ -12,7 +12,7 @@ A Kotlin library containing a parser and models for the Engelsystem:
 ## Usage
 
 ```kotlin
-val engelsystemApi: EngelsystemApi = ApiModule
+val engelsystemApi: EngelsystemApi = Api
 engelsystemApi.provideEngelsystemService(BASE_URL, okHttpClient)
          .getShifts(URL_PART_PATH, API_KEY)
 ```

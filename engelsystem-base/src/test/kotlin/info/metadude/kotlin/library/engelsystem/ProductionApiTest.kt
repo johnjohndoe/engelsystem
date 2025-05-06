@@ -76,7 +76,7 @@ class ProductionApiTest {
             .addNetworkInterceptor(UserAgentInterceptor("engelsystem-base library; ${javaClass.simpleName}"))
             .addNetworkInterceptor(interceptor)
             .build()
-        ApiModule.provideEngelsystemService(BASE_URL, okHttpClient)
+        Api.provideEngelsystemService(BASE_URL, okHttpClient)
     }
 
 }

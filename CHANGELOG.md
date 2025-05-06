@@ -6,6 +6,10 @@
 
 ### Changes
 
+* **Breaking changes:**
+  * Rename `ApiModule` to `Api`.
+  * Change `Api#provideEngelsystemService` parameter from `okHttpClient: OkHttpClient` to `callFactory: Call.Factory`.
+  * Require `baseUrl` parameter in `Api#provideEngelsystemService` not to be empty string.
 * Use dokka v.2.0.0.
 * Use kotlin v.2.1.20 and ksp v.2.1.20-2.0.1.
 * Use kotlinx-coroutines-test v.1.10.2.
