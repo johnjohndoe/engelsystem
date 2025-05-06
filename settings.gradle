@@ -1,3 +1,4 @@
 rootProject.name = 'engelsystem'
 include ":engelsystem-base"
+include ":engelsystem-repositories"
 

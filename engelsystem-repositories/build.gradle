@@ -1,0 +1,52 @@
+import info.metadude.kotlin.library.engelsystem.Libs
+import org.gradle.api.tasks.testing.logging.TestExceptionFormat
+import org.gradle.api.tasks.testing.logging.TestLogEvent
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
+apply plugin: "java-library"
+apply plugin: "kotlin"
+
+compileJava {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+tasks.withType(KotlinCompile).configureEach {
+    compilerOptions {
+        jvmTarget = JvmTarget.JVM_17
+    }
+}
+
+dependencies {
+    api project(":engelsystem-base")
+    implementation Libs.kotlinCoroutinesCore
+    api Libs.okhttp
+
+    testImplementation Libs.junitJupiterApi
+    testRuntimeOnly Libs.junitJupiterEngine
+    testRuntimeOnly Libs.junitPlatformLauncher
+    testImplementation Libs.kotlinCoroutinesTest
+    testImplementation Libs.mockitoKotlin
+    testImplementation Libs.okhttpMockWebServer
+    testImplementation Libs.retrofitMoshi
+    testImplementation Libs.truth
+    testImplementation Libs.turbine
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events TestLogEvent.FAILED,
+                TestLogEvent.PASSED,
+                TestLogEvent.SKIPPED,
+                TestLogEvent.STANDARD_ERROR,
+                TestLogEvent.STANDARD_OUT
+        exceptionFormat TestExceptionFormat.FULL
+        showCauses true
+        showExceptions true
+        showStackTraces true
+    }
+}
+
+apply from: rootProject.file("gradle/deploy.gradle")

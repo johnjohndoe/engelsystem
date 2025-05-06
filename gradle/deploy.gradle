@@ -7,6 +7,8 @@ apply plugin: "org.jetbrains.dokka-javadoc"
 group = project.groupId
 version = project.versionName
 
+def moduleArtifactId = project.hasProperty('moduleArtifactId') ? project.moduleArtifactId : project.artifactId
+
 tasks.register("sourcesJar", Jar) {
     group "publishing"
     description "Generates source jar"
@@ -23,11 +25,13 @@ tasks.register("javadocJar", Jar) {
 }
 
 dokka {
-    moduleName.set("Engelsystem")
+    moduleName.set(project.name)
     dokkaSourceSets.main {
         sourceLink {
-            localDirectory.set(file("engelsystem-base/src/main/kotlin"))
-            remoteUrl("https://github.com/johnjohndoe/engelsystem/blob/master/engelsystem-base/src/main/kotlin")
+            // Get the module path for source linking
+            def modulePath = project.path.replace(':', '')
+            localDirectory.set(file("${modulePath}/src/main/kotlin"))
+            remoteUrl.set(URI.create("https://github.com/johnjohndoe/engelsystem/blob/master/${modulePath}/src/main/kotlin"))
             remoteLineSuffix.set("#L")
         }
     }
@@ -52,7 +56,7 @@ afterEvaluate {
             release(MavenPublication) {
                 from components.java
                 groupId = project.groupId
-                artifactId = project.artifactId
+                artifactId = moduleArtifactId
                 version = project.versionName
 
                 artifact sourcesJar {
@@ -107,9 +111,13 @@ afterEvaluate {
 }
 
 tasks.named("dokkaGeneratePublicationJavadoc").configure {
-    dependsOn("kspKotlin")
+    if (project.plugins.hasPlugin("com.google.devtools.ksp")) {
+        dependsOn("kspKotlin")
+    }
 }
 
 tasks.named("sourcesJar").configure {
-    dependsOn("kspKotlin")
+    if (project.plugins.hasPlugin("com.google.devtools.ksp")) {
+        dependsOn("kspKotlin")
+    }
 }

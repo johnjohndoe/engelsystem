@@ -11,17 +11,67 @@ A Kotlin library containing a parser and models for the Engelsystem:
 
 ## Usage
 
+The library is published as two separate artifacts: `engelsystem-base` and `engelsystem-repositories`.
+You can use either of them depending on your needs.
+
+#### Usage of `engelsystem-base`
+
+The `engelsystem-base` artifact returns a `Response<List<Shift>>` type from the suspending
+`EngelsystemService#getShifts()` function.
+
 ```kotlin
-val engelsystemApi: EngelsystemApi = Api
-engelsystemApi.provideEngelsystemService(BASE_URL, okHttpClient)
-         .getShifts(
-             eTag = "", // Pass an empty string or a previous ETag value for caching
-             lastModifiedAt = "", // Pass an empty string or a previous Last-Modified value for caching
-             path = URL_PART_PATH, 
-             apiKey = API_KEY,
-         )
+val api: EngelsystemApi = Api
+val service: EngelsystemService = api.provideEngelsystemService(BASE_URL, okHttpClient)
+service.getShifts(
+    eTag = "", // Pass an empty string or a previous ETag value for caching
+    lastModifiedAt = "", // Pass an empty string or a previous Last-Modified value for caching
+    path = URL_PART_PATH,
+    apiKey = API_KEY,
+)
+if (response.isSuccessful) {
+    val shifts = response.body()
+    val responseETag = response.headers()["ETag"]
+    val responseLastModifiedAt = response.headers()["Last-Modified"]
+} else {
+    val errorCode = response.code()
+    val errorMessage = response.message()
+}
 ```
 
+The `engelsystem-repositories` artifact returns a `Flow<GetShiftsState>` type from the suspending
+`SimpleEngelsystemRepository#getShiftsState()` function.
+
+```kotlin
+val api: EngelsystemApi = Api
+val repository = SimpleEngelsystemRepository(
+    callFactory = OkHttpClient.Builder().build(),
+    api = api,
+)
+
+repository.getShiftsState(
+    requestETag = "", // Pass an empty string or a previous ETag value for caching
+    requestLastModifiedAt = "", // Pass an empty string or a previous Last-Modified value for caching
+    baseUrl = BASE_URL,
+    path = URL_PART_PATH,
+    apiKey = API_KEY,
+)
+.collectLatest { state: GetShiftsState ->
+    when (state) {
+        is Success -> {
+            val shifts = state.shifts
+            val responseETag = state.responseETag
+            val responseLastModifiedAt = state.responseLastModifiedAt
+        }
+        is Error -> {
+            val httpStatusCode = state.httpStatusCode
+            val errorMessage = state.errorMessage
+        }
+        is Failure -> {
+            val throwable = state.throwable
+        }
+    }
+}
+```
 
 ### Time stamps
 
@@ -48,12 +98,13 @@ allprojects {
 }
 ```
 
-and to your application module `build.gradle`:
+and one of the following dependencies to your application module `build.gradle`:
 
 
 ```groovy
 dependencies {
     implementation "info.metadude.kotlin.library.engelsystem:engelsystem-base:$version"
+    implementation "info.metadude.kotlin.library.engelsystem:engelsystem-repositories:$version"
 }
 ```
 
