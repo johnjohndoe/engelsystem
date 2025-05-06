@@ -6,6 +6,7 @@
 
 ### Changes
 
+* Use moshi v.1.15.2.
 * Use threetenbp v.1.7.1.
 * Fix URL of Apache license.
 
