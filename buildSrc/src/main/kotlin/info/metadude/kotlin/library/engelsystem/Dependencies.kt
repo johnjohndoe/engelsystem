@@ -8,7 +8,7 @@ object GradlePlugins {
         const val dokka = "1.9.20"
         const val kotlin = "2.0.21"
         const val ksp = "2.0.21-1.0.27"
-        const val versions = "0.51.0"
+        const val versions = "0.52.0"
     }
 
     const val dokka = "org.jetbrains.dokka:dokka-gradle-plugin:${Versions.dokka}"
