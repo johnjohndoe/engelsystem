@@ -20,14 +20,6 @@ object ApiModule : EngelsystemApi {
         return createRetrofit(baseUrl, okHttpClient).create(EngelsystemService::class.java)
     }
 
-    private fun provideMoshiBuilder(): Moshi {
-        return Moshi.Builder()
-            .add(Instant::class.java, InstantJsonAdapter())
-            .add(ZonedDateTime::class.java, ZonedDateTimeJsonAdapter())
-            .add(ZoneOffset::class.java, ZoneOffsetJsonAdapter())
-            .build()
-    }
-
     private fun createRetrofit(
         baseUrl: String,
         okHttpClient: OkHttpClient
@@ -36,5 +28,13 @@ object ApiModule : EngelsystemApi {
         .addConverterFactory(MoshiConverterFactory.create(provideMoshiBuilder()))
         .client(okHttpClient)
         .build()
+
+    private fun provideMoshiBuilder(): Moshi {
+        return Moshi.Builder()
+            .add(Instant::class.java, InstantJsonAdapter())
+            .add(ZonedDateTime::class.java, ZonedDateTimeJsonAdapter())
+            .add(ZoneOffset::class.java, ZoneOffsetJsonAdapter())
+            .build()
+    }
 
 }
