@@ -6,6 +6,9 @@
 
 ### Changes
 
+* **Breaking changes:** Let `EngelsystemService#getShifts` return `Response<List<Shift>>`.
+  * Add `eTag` and `lastModifiedAt` parameters.
+  * Expose `retrofit2.Response` in library API.
 * **Breaking changes:**
   * Rename `ApiModule` to `Api`.
   * Change `Api#provideEngelsystemService` parameter from `okHttpClient: OkHttpClient` to `callFactory: Call.Factory`.

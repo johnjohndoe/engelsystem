@@ -14,7 +14,12 @@ A Kotlin library containing a parser and models for the Engelsystem:
 ```kotlin
 val engelsystemApi: EngelsystemApi = Api
 engelsystemApi.provideEngelsystemService(BASE_URL, okHttpClient)
-         .getShifts(URL_PART_PATH, API_KEY)
+         .getShifts(
+             eTag = "", // Pass an empty string or a previous ETag value for caching
+             lastModifiedAt = "", // Pass an empty string or a previous Last-Modified value for caching
+             path = URL_PART_PATH, 
+             apiKey = API_KEY,
+         )
 ```
 
 
