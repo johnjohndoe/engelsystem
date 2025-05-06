@@ -6,6 +6,7 @@
 
 ### Changes
 
+* Use threetenbp v.1.7.1.
 * Fix URL of Apache license.
 
 ## [v.9.2.0](https://github.com/johnjohndoe/engelsystem/releases/tag/v.9.2.0)
