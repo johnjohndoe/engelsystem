@@ -6,6 +6,8 @@
 
 ### Changes
 
+* Update deployment to handle both modules.
+* **New:** Add `SimpleEngelsystemRepository` in separate "engelsystem-repositories" library artifact.
 * **Breaking changes:** Let `EngelsystemService#getShifts` return `Response<List<Shift>>`.
   * Add `eTag` and `lastModifiedAt` parameters.
   * Expose `retrofit2.Response` in library API.
