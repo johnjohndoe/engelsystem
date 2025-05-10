@@ -20,11 +20,12 @@ tasks.withType(KotlinCompile).configureEach {
 }
 
 dependencies {
+    implementation Libs.kotlinCoroutinesCore
     implementation Libs.moshi
     ksp Libs.moshiKotlinCodegen
     implementation Libs.okhttp
     implementation Libs.okhttpLoggingInterceptor
-    implementation Libs.retrofit
+    api Libs.retrofit
     implementation Libs.retrofitMoshi
     api Libs.threetenbp
 

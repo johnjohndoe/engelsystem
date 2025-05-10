@@ -9,7 +9,6 @@ import okhttp3.logging.HttpLoggingInterceptor
 import org.junit.jupiter.api.Assertions.fail
 import org.junit.jupiter.api.Test
 import org.threeten.bp.ZonedDateTime
-import retrofit2.HttpException
 
 class ProductionApiTest {
 
@@ -22,13 +21,25 @@ class ProductionApiTest {
     }
 
     @Test
-    fun `Validates a successful shifts response`() = runTest {
+    fun `getShifts responds successfully`() = runTest {
         try {
-            val shifts = service.getShifts(URL_PART_PATH, VALID_API_KEY)
-            assertThat(shifts).isNotNull()
-            shifts.forEach {
-                assertThat(it).isNotNull()
-                assertShift(it)
+            val response = service.getShifts(
+                eTag = "",
+                lastModifiedAt = "",
+                path = URL_PART_PATH,
+                apiKey = VALID_API_KEY,
+            )
+            when (response.isSuccessful) {
+                true -> {
+                    val shifts = response.body()
+                    assertThat(shifts).isNotNull()
+                    shifts?.forEach {
+                        assertThat(it).isNotNull()
+                        assertShift(it)
+                    }
+                }
+
+                false -> fail("Request failed with code ${response.code()}: ${response.message()}")
             }
         } catch (t: Throwable) {
             fail("Should not throw $t")
@@ -57,15 +68,26 @@ class ProductionApiTest {
     }
 
     @Test
-    fun `Validates a failure shifts response`() = runTest {
+    fun `getShifts throws HTTP exception`() = runTest {
         try {
-            service.getShifts(URL_PART_PATH, INVALID_API_KEY)
-            fail("Request should not succeed.")
-        } catch (e: HttpException) {
-            assertThat(e.message()).isEqualTo("Forbidden")
-            assertThat(e.code()).isEqualTo(403)
-            assertThat(e.response()!!.body()).isNull()
-            assertThat(e.response()!!.errorBody()).isNotNull()
+            val response = service.getShifts(
+                eTag = "",
+                lastModifiedAt = "",
+                path = URL_PART_PATH,
+                apiKey = INVALID_API_KEY,
+            )
+            when (response.isSuccessful) {
+                false -> {
+                    assertThat(response.code()).isEqualTo(403)
+                    assertThat(response.message()).isEqualTo("Forbidden")
+                    assertThat(response.body()).isNull()
+                    assertThat(response.errorBody()).isNotNull()
+                }
+
+                true -> fail("Request should not succeed.")
+            }
+        } catch (t: Throwable) {
+            fail("Should not throw $t")
         }
     }
 
@@ -76,7 +98,7 @@ class ProductionApiTest {
             .addNetworkInterceptor(UserAgentInterceptor("engelsystem-base library; ${javaClass.simpleName}"))
             .addNetworkInterceptor(interceptor)
             .build()
-        ApiModule.provideEngelsystemService(BASE_URL, okHttpClient)
+        Api.provideEngelsystemService(BASE_URL, okHttpClient)
     }
 
 }

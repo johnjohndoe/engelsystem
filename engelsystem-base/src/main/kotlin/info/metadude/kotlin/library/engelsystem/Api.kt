@@ -4,21 +4,31 @@ import com.squareup.moshi.Moshi
 import info.metadude.kotlin.library.engelsystem.adapters.InstantJsonAdapter
 import info.metadude.kotlin.library.engelsystem.adapters.ZoneOffsetJsonAdapter
 import info.metadude.kotlin.library.engelsystem.adapters.ZonedDateTimeJsonAdapter
-import okhttp3.OkHttpClient
+import okhttp3.Call
 import org.threeten.bp.Instant
 import org.threeten.bp.ZoneOffset
 import org.threeten.bp.ZonedDateTime
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
-object ApiModule : EngelsystemApi {
+object Api : EngelsystemApi {
 
     override fun provideEngelsystemService(
         baseUrl: String,
-        okHttpClient: OkHttpClient
+        callFactory: Call.Factory
     ): EngelsystemService {
-        return createRetrofit(baseUrl, okHttpClient).create(EngelsystemService::class.java)
+        require(baseUrl.isNotEmpty()) { "baseUrl is empty." }
+        return createRetrofit(baseUrl, callFactory).create(EngelsystemService::class.java)
     }
+
+    private fun createRetrofit(
+        baseUrl: String,
+        callFactory: Call.Factory
+    ) = Retrofit.Builder()
+        .baseUrl(baseUrl)
+        .addConverterFactory(MoshiConverterFactory.create(provideMoshiBuilder()))
+        .callFactory(callFactory)
+        .build()
 
     private fun provideMoshiBuilder(): Moshi {
         return Moshi.Builder()
@@ -27,14 +37,5 @@ object ApiModule : EngelsystemApi {
             .add(ZoneOffset::class.java, ZoneOffsetJsonAdapter())
             .build()
     }
-
-    private fun createRetrofit(
-        baseUrl: String,
-        okHttpClient: OkHttpClient
-    ) = Retrofit.Builder()
-        .baseUrl(baseUrl)
-        .addConverterFactory(MoshiConverterFactory.create(provideMoshiBuilder()))
-        .client(okHttpClient)
-        .build()
 
 }
