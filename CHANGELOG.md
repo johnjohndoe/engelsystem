@@ -6,6 +6,11 @@
 
 ### Changes
 
+* Use dokka v.2.0.0.
+* Use kotlin v.2.1.20 and ksp v.2.1.20-2.0.1.
+* Use kotlinx-coroutines-test v.1.10.2.
+* Use moshi v.1.15.2.
+* Use threetenbp v.1.7.1.
 * Fix URL of Apache license.
 
 ## [v.9.2.0](https://github.com/johnjohndoe/engelsystem/releases/tag/v.9.2.0)
