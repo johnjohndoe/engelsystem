@@ -20,8 +20,7 @@ object GradlePlugins {
 object Libs {
 
     private object Versions {
-        const val junitJupiter = "5.12.2"
-        const val junitPlatformLauncher = "1.12.2"
+        const val junit = "6.0.1"
         const val kotlinCoroutines = "1.10.2"
         const val mockitoKotlin = "6.1.0"
         const val moshi = "1.15.2"
@@ -32,9 +31,9 @@ object Libs {
         const val turbine = "1.2.1"
     }
 
-    const val junitJupiterApi = "org.junit.jupiter:junit-jupiter-api:${Versions.junitJupiter}"
-    const val junitJupiterEngine = "org.junit.jupiter:junit-jupiter-engine:${Versions.junitJupiter}"
-    const val junitPlatformLauncher = "org.junit.platform:junit-platform-launcher:${Versions.junitPlatformLauncher}"
+    const val junitJupiterApi = "org.junit.jupiter:junit-jupiter-api:${Versions.junit}"
+    const val junitJupiterEngine = "org.junit.jupiter:junit-jupiter-engine:${Versions.junit}"
+    const val junitPlatformLauncher = "org.junit.platform:junit-platform-launcher:${Versions.junit}"
     const val kotlinCoroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.kotlinCoroutines}"
     const val kotlinCoroutinesTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.kotlinCoroutines}"
     const val mockitoKotlin = "org.mockito.kotlin:mockito-kotlin:${Versions.mockitoKotlin}"
