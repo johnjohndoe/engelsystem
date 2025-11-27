@@ -13,10 +13,10 @@ import info.metadude.kotlin.library.engelsystem.repositories.models.GetShiftsSta
 import info.metadude.kotlin.library.engelsystem.repositories.simple.SimpleEngelsystemRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.test.runTest
+import mockwebserver3.MockResponse
+import mockwebserver3.MockWebServer
 import okhttp3.Call
 import okhttp3.OkHttpClient
-import okhttp3.mockwebserver.MockResponse
-import okhttp3.mockwebserver.MockWebServer
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
@@ -96,7 +96,7 @@ class SimpleEngelsystemRepositoryHttpStatusCodeTest {
 
     @AfterEach
     fun tearDown() {
-        mockWebServer.shutdown()
+        mockWebServer.close()
     }
 
     @Test
@@ -235,10 +235,11 @@ class SimpleEngelsystemRepositoryHttpStatusCodeTest {
         responseHttpStatusCode: Int,
         responseBody: String
     ): Flow<GetShiftsState> {
-        val shiftsResponse = MockResponse()
+        val shiftsResponse = MockResponse.Builder()
             .addHeader("Content-Type", "application/json")
-            .setResponseCode(responseHttpStatusCode)
-            .setBody(responseBody)
+            .code(responseHttpStatusCode)
+            .body(responseBody)
+            .build()
         mockWebServer.enqueue(shiftsResponse)
         return getShiftsState(
             requestETag = "",

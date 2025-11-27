@@ -1,5 +1,19 @@
 # Engelsystem changelog
 
+## NEXT
+
+* Not published yet.
+
+### Changes
+
+* Provide good defaults via `SimpleEngelsystemRepository` constructor and `EngelsystemApi#provideEngelsystemService`.
+* Use okhttp v.5.3.2.
+* Use retrofit v.3.0.0.
+* Use threetenbp v.1.7.2.
+* Use dokka v.2.1.0.
+* Use kotlin v.2.2.21 and ksp v.2.3.3.
+
+
 ## [v.10.0.0](https://github.com/johnjohndoe/engelsystem/releases/tag/v.10.0.0)
 
 * Published: 2025-05-10
@@ -21,6 +35,7 @@
 * Use moshi v.1.15.2.
 * Use threetenbp v.1.7.1.
 * Fix URL of Apache license.
+
 
 ## [v.9.2.0](https://github.com/johnjohndoe/engelsystem/releases/tag/v.9.2.0)
 
