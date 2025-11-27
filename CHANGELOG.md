@@ -6,6 +6,7 @@
 
 ### Changes
 
+* Use okhttp v.5.3.2.
 * Use retrofit v.3.0.0.
 * Use threetenbp v.1.7.2.
 * Use dokka v.2.1.0.
