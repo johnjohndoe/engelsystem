@@ -23,7 +23,7 @@ object Libs {
         const val junitJupiter = "5.12.2"
         const val junitPlatformLauncher = "1.12.2"
         const val kotlinCoroutines = "1.10.2"
-        const val mockitoKotlin = "5.4.0"
+        const val mockitoKotlin = "6.1.0"
         const val moshi = "1.15.2"
         const val okhttp = "4.12.0"
         const val retrofit = "2.11.0"
