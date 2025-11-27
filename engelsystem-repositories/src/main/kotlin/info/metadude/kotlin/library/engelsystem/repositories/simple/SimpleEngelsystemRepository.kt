@@ -1,5 +1,6 @@
 package info.metadude.kotlin.library.engelsystem.repositories.simple
 
+import info.metadude.kotlin.library.engelsystem.Api
 import info.metadude.kotlin.library.engelsystem.EngelsystemApi
 import info.metadude.kotlin.library.engelsystem.repositories.EngelsystemRepository
 import info.metadude.kotlin.library.engelsystem.repositories.models.GetShiftsState
@@ -9,10 +10,11 @@ import info.metadude.kotlin.library.engelsystem.repositories.models.GetShiftsSta
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import okhttp3.Call
+import okhttp3.OkHttpClient
 
 class SimpleEngelsystemRepository(
-    private val callFactory: Call.Factory,
-    private val api: EngelsystemApi,
+    private val callFactory: Call.Factory = OkHttpClient.Builder().build(),
+    private val api: EngelsystemApi = Api,
 ) : EngelsystemRepository {
 
     private companion object {
