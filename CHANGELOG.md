@@ -6,6 +6,7 @@
 
 ### Changes
 
+* Use retrofit v.3.0.0.
 * Use threetenbp v.1.7.2.
 * Use dokka v.2.1.0.
 * Use kotlin v.2.2.21 and ksp v.2.3.3.
