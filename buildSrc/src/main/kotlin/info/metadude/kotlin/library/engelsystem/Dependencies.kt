@@ -28,7 +28,7 @@ object Libs {
         const val okhttp = "4.12.0"
         const val retrofit = "2.11.0"
         const val threetenbp = "1.7.1"
-        const val truth = "1.4.4"
+        const val truth = "1.4.5"
         const val turbine = "1.2.1"
     }
 
