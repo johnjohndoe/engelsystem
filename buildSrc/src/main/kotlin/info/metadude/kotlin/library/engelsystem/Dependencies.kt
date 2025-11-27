@@ -29,7 +29,7 @@ object Libs {
         const val retrofit = "2.11.0"
         const val threetenbp = "1.7.1"
         const val truth = "1.4.4"
-        const val turbine = "1.2.0"
+        const val turbine = "1.2.1"
     }
 
     const val junitJupiterApi = "org.junit.jupiter:junit-jupiter-api:${Versions.junitJupiter}"
