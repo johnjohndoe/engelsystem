@@ -1,5 +1,14 @@
 # Engelsystem changelog
 
+## NEXT
+
+* Not published yet.
+
+### Changes
+
+* Use kotlin v.2.2.21 and ksp v.2.3.3.
+
+
 ## [v.10.0.0](https://github.com/johnjohndoe/engelsystem/releases/tag/v.10.0.0)
 
 * Published: 2025-05-10
@@ -21,6 +30,7 @@
 * Use moshi v.1.15.2.
 * Use threetenbp v.1.7.1.
 * Fix URL of Apache license.
+
 
 ## [v.9.2.0](https://github.com/johnjohndoe/engelsystem/releases/tag/v.9.2.0)
 
