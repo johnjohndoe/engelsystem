@@ -6,6 +6,7 @@
 
 ### Changes
 
+* **Breaking change:** Build with JVM target 21.
 * Use dokka v.2.2.0.
 * Use kotlin v.2.4.0 and ksp v.2.3.9.
 * Use kotlinx-coroutines-* v.1.11.0.
