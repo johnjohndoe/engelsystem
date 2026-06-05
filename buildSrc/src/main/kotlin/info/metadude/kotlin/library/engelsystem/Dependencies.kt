@@ -21,7 +21,7 @@ object Libs {
 
     private object Versions {
         const val junit = "6.0.1"
-        const val kotlinCoroutines = "1.10.2"
+        const val kotlinCoroutines = "1.11.0"
         const val mockitoKotlin = "6.3.0"
         const val moshi = "1.15.2"
         const val okhttp = "5.3.2"
