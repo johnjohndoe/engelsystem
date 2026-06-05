@@ -6,6 +6,7 @@
 
 ### Changes
 
+* Use kotlin v.2.4.0 and ksp v.2.3.9.
 * Use kotlinx-coroutines-* v.1.11.0.
 * Use threetenbp v.1.7.3.
 
