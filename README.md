@@ -51,8 +51,7 @@ val repository = SimpleEngelsystemRepository(
 repository.getShiftsState(
     requestETag = "", // Pass an empty string or a previous ETag value for caching
     requestLastModifiedAt = "", // Pass an empty string or a previous Last-Modified value for caching
-    baseUrl = BASE_URL,
-    path = URL_PART_PATH,
+    url = URL,
     apiKey = API_KEY,
 )
 .collectLatest { state: GetShiftsState ->

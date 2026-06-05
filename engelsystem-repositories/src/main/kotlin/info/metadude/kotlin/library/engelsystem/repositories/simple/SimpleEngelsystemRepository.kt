@@ -7,6 +7,7 @@ import info.metadude.kotlin.library.engelsystem.repositories.models.GetShiftsSta
 import info.metadude.kotlin.library.engelsystem.repositories.models.GetShiftsState.Error
 import info.metadude.kotlin.library.engelsystem.repositories.models.GetShiftsState.Failure
 import info.metadude.kotlin.library.engelsystem.repositories.models.GetShiftsState.Success
+import info.metadude.kotlin.library.engelsystem.repositories.utils.UrlComponents.Companion.getUrlComponents
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import okhttp3.Call
@@ -25,12 +26,12 @@ class SimpleEngelsystemRepository(
     override suspend fun getShiftsState(
         requestETag: String,
         requestLastModifiedAt: String,
-        baseUrl: String,
-        path: String,
+        url: String,
         apiKey: String
     ): Flow<GetShiftsState> {
         return flow {
             val emission = try {
+                val (baseUrl, path) = url.getUrlComponents()
                 val response = api
                     .provideEngelsystemService(baseUrl, callFactory)
                     .getShifts(requestETag, requestLastModifiedAt, path, apiKey)

@@ -244,8 +244,7 @@ class SimpleEngelsystemRepositoryHttpStatusCodeTest {
         return getShiftsState(
             requestETag = "",
             requestLastModifiedAt = "",
-            baseUrl = "",
-            path = "",
+            url = "https://example.com",
             apiKey = "",
         )
     }
