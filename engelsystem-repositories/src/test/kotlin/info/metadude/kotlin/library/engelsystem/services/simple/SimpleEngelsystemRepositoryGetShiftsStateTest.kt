@@ -14,27 +14,30 @@ import info.metadude.kotlin.library.engelsystem.services.ImmediatelyThrowingServ
 import kotlinx.coroutines.test.runTest
 import okhttp3.Call
 import org.junit.jupiter.api.Test
+import org.mockito.kotlin.any
 import org.mockito.kotlin.doReturn
 import org.mockito.kotlin.mock
 
 class SimpleEngelsystemRepositoryGetShiftsStateTest {
+
+    private companion object {
+        const val URL = "https://example.com"
+    }
 
     private lateinit var api: EngelsystemApi
     private val httpClient = mock<Call.Factory>()
 
     @Test
     fun `getShiftsState() returns success with list of shifts`(): Unit = runTest {
-        val baseUrl = "https://example.com"
         api = mock {
-            on { provideEngelsystemService(baseUrl, httpClient) }
+            on { provideEngelsystemService(any(), any()) }
                 .doReturn(ImmediatelySucceedingService())
         }
         createRepository(api)
             .getShiftsState(
                 requestETag = "",
                 requestLastModifiedAt = "",
-                baseUrl = baseUrl,
-                path = "",
+                url = URL,
                 apiKey = "",
             )
             .test {
@@ -50,17 +53,15 @@ class SimpleEngelsystemRepositoryGetShiftsStateTest {
 
     @Test
     fun `getShiftsState() returns failure with http error`(): Unit = runTest {
-        val baseUrl = "https://example.com"
         api = mock {
-            on { provideEngelsystemService(baseUrl, httpClient) }
+            on { provideEngelsystemService(any(), any()) }
                 .doReturn(ImmediatelyFailingService())
         }
         createRepository(api)
             .getShiftsState(
                 requestETag = "",
                 requestLastModifiedAt = "",
-                baseUrl = baseUrl,
-                path = "",
+                url = URL,
                 apiKey = "",
             )
             .test {
@@ -75,17 +76,15 @@ class SimpleEngelsystemRepositoryGetShiftsStateTest {
 
     @Test
     fun `getShiftsState() returns failure with runtime exception`(): Unit = runTest {
-        val baseUrl = "https://example.com"
         api = mock {
-            on { provideEngelsystemService(baseUrl, httpClient) }
+            on { provideEngelsystemService(any(), any()) }
                 .doReturn(ImmediatelyThrowingService())
         }
         createRepository(api)
             .getShiftsState(
                 requestETag = "",
                 requestLastModifiedAt = "",
-                baseUrl = baseUrl,
-                path = "",
+                url = URL,
                 apiKey = "",
             )
             .test {

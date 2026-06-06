@@ -8,8 +8,7 @@ interface EngelsystemRepository {
     suspend fun getShiftsState(
         requestETag: String,
         requestLastModifiedAt: String,
-        baseUrl: String,
-        path: String,
+        url: String,
         apiKey: String,
     ): Flow<GetShiftsState>
 

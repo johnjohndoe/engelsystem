@@ -12,8 +12,7 @@ internal suspend fun main() {
         .getShiftsState(
             requestETag = "",
             requestLastModifiedAt = "",
-            baseUrl = "https://staging.engelsystem.de",
-            path = "test/shifts-json-export",
+            url = "https://staging.engelsystem.de/test/shifts-json-export",
             apiKey = "b8bb16fcd23500f2054480faad8df9db0884280fae8242182530e982cf76e87b",
         )
         .collectLatest { println("$it") }
