@@ -7,8 +7,10 @@ import kotlinx.coroutines.test.runTest
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.junit.jupiter.api.Assertions.fail
+import org.junit.jupiter.api.Assumptions.abort
 import org.junit.jupiter.api.Test
 import org.threeten.bp.ZonedDateTime
+import java.io.IOException
 
 class ProductionApiTest {
 
@@ -41,6 +43,8 @@ class ProductionApiTest {
 
                 false -> fail("Request failed with code ${response.code()}: ${response.message()}")
             }
+        } catch (e: IOException) {
+            abort("Skipping test: cannot reach $BASE_URL ($e).")
         } catch (t: Throwable) {
             fail("Should not throw $t")
         }
@@ -86,6 +90,8 @@ class ProductionApiTest {
 
                 true -> fail("Request should not succeed.")
             }
+        } catch (e: IOException) {
+            abort("Skipping test: cannot reach $BASE_URL ($e).")
         } catch (t: Throwable) {
             fail("Should not throw $t")
         }
