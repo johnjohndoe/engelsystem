@@ -1,5 +1,18 @@
 # Engelsystem changelog
 
+## NEXT
+
+* Not published yet
+
+### Changes
+
+* **Breaking change:** Build with JVM target 21.
+* Use dokka v.2.2.0.
+* Use kotlin v.2.4.0 and ksp v.2.3.9.
+* Use kotlinx-coroutines-* v.1.11.0.
+* Use threetenbp v.1.7.3.
+
+
 ## [v.11.0.0](https://github.com/johnjohndoe/engelsystem/releases/tag/v.11.0.0)
 
 * Published: 2025-11-27
