@@ -6,6 +6,7 @@
 
 ### Changes
 
+* Use kotlin v.2.4.21 and ksp v.2.3.13.
 * Use dokka v.2.3.0.
 * Use okhttp v.5.5.1.
 * Use threetenbp v.1.7.5.

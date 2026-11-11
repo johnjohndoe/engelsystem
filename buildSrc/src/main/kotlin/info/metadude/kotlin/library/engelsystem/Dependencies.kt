@@ -6,8 +6,8 @@ object GradlePlugins {
 
     private object Versions {
         const val dokka = "2.3.0"
-        const val kotlin = "2.4.0"
-        const val ksp = "2.3.9"
+        const val kotlin = "2.4.21"
+        const val ksp = "2.3.13"
         const val versions = "0.67.0"
     }
 
