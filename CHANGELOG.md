@@ -6,6 +6,7 @@
 
 ### Changes
 
+* Use dokka v.2.3.0.
 * Use okhttp v.5.5.1.
 * Use threetenbp v.1.7.5.
 
