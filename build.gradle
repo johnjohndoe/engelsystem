@@ -12,6 +12,7 @@ buildscript {
         classpath GradlePlugins.dokka
         classpath GradlePlugins.kotlin
         classpath GradlePlugins.ksp
+        classpath GradlePlugins.publish
         classpath GradlePlugins.versions
     }
 }
@@ -19,5 +20,22 @@ buildscript {
 allprojects {
     repositories {
         mavenCentral()
+    }
+}
+
+subprojects {
+    group = GROUP
+    version = VERSION_NAME
+
+    plugins.withId("org.jetbrains.dokka-javadoc") {
+        project.extensions.configure("dokka") { dokka ->
+            dokka.dokkaSourceSets.named("main") {
+                sourceLink {
+                    localDirectory.set(project.layout.projectDirectory.dir("src/main/kotlin"))
+                    remoteUrl.set(URI.create("https://github.com/johnjohndoe/engelsystem/blob/master/${project.name}/src/main/kotlin"))
+                    remoteLineSuffix.set("#L")
+                }
+            }
+        }
     }
 }

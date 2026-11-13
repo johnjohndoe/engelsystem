@@ -8,12 +8,14 @@ object GradlePlugins {
         const val dokka = "2.3.0"
         const val kotlin = "2.4.21"
         const val ksp = "2.3.13"
+        const val publish = "0.37.0"
         const val versions = "0.67.0"
     }
 
     const val dokka = "org.jetbrains.dokka:dokka-gradle-plugin:${Versions.dokka}"
     const val kotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
     const val ksp = "com.google.devtools.ksp:com.google.devtools.ksp.gradle.plugin:${Versions.ksp}"
+    const val publish = "com.vanniktech:gradle-maven-publish-plugin:${Versions.publish}"
     const val versions = "io.github.ben-manes:gradle-versions-plugin:${Versions.versions}"
 }
 
