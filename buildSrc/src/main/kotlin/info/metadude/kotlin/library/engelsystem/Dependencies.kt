@@ -5,28 +5,28 @@ package info.metadude.kotlin.library.engelsystem
 object GradlePlugins {
 
     private object Versions {
-        const val dokka = "2.2.0"
-        const val kotlin = "2.4.0"
-        const val ksp = "2.3.9"
-        const val versions = "0.54.0"
+        const val dokka = "2.3.0"
+        const val kotlin = "2.4.21"
+        const val ksp = "2.3.13"
+        const val versions = "0.67.0"
     }
 
     const val dokka = "org.jetbrains.dokka:dokka-gradle-plugin:${Versions.dokka}"
     const val kotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
     const val ksp = "com.google.devtools.ksp:com.google.devtools.ksp.gradle.plugin:${Versions.ksp}"
-    const val versions = "com.github.ben-manes:gradle-versions-plugin:${Versions.versions}"
+    const val versions = "io.github.ben-manes:gradle-versions-plugin:${Versions.versions}"
 }
 
 object Libs {
 
     private object Versions {
-        const val junit = "6.1.0"
+        const val junit = "6.1.3"
         const val kotlinCoroutines = "1.11.0"
-        const val mockitoKotlin = "6.3.0"
+        const val mockitoKotlin = "6.4.0"
         const val moshi = "1.15.2"
-        const val okhttp = "5.4.0"
+        const val okhttp = "5.5.1"
         const val retrofit = "3.0.0"
-        const val threetenbp = "1.7.3"
+        const val threetenbp = "1.7.5"
         const val truth = "1.4.5"
         const val turbine = "1.2.1"
     }

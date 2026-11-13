@@ -1,5 +1,17 @@
 # Engelsystem changelog
 
+## NEXT
+
+* Not published yet
+
+### Changes
+
+* Use kotlin v.2.4.21 and ksp v.2.3.13.
+* Use dokka v.2.3.0.
+* Use okhttp v.5.5.1.
+* Use threetenbp v.1.7.5.
+
+
 ## [v.12.0.0](https://github.com/johnjohndoe/engelsystem/releases/tag/v.12.0.0)
 
 * Published: 2026-06-15
